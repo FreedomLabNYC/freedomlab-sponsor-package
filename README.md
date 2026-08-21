@@ -2,7 +2,21 @@
 
 Editable source for Freedom Lab NYC's three-page sponsorship package.
 
-![Three-page sponsorship package preview](preview.png)
+## Full-resolution preview
+
+Each page is shown separately so the copy and numerical modules remain readable. Click any page to open its original resolution.
+
+### Page 1 — Cover
+
+[![Freedom Lab NYC sponsorship package cover](docs/preview/page-01-cover.png)](docs/preview/page-01-cover.png)
+
+### Page 2 — Primer
+
+[![Freedom Lab NYC primer with community photos and numerical modules](docs/preview/page-02-primer.png)](docs/preview/page-02-primer.png)
+
+### Page 3 — Sponsorship tiers
+
+[![Freedom Lab NYC sponsorship tiers](docs/preview/page-03-sponsorship-tiers.png)](docs/preview/page-03-sponsorship-tiers.png)
 
 - **Live preview:** https://freedomlab.nyc/sponsors-html/
 - **Published PDF:** https://freedomlab.nyc/sponsor/
