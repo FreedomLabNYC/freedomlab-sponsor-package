@@ -1,0 +1,14 @@
+{
+  "name": "freedomlab-sponsor-package",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Editable Freedom Lab NYC sponsorship package",
+  "scripts": {
+    "preview": "python3 -m http.server 8000 --directory src",
+    "export:pdf": "node scripts/export-pdf.mjs"
+  },
+  "devDependencies": {
+    "pdf-lib": "1.17.1",
+    "playwright": "1.58.2"
+  }
+}
