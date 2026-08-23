@@ -1,0 +1,136 @@
+{
+  "option": "Option A — Signal Rings",
+  "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
+  "pageCount": 5,
+  "imagesLoaded": true,
+  "imageCount": 44,
+  "eventCards": 31,
+  "compactEventCards": 31,
+  "compactTitlesPresent": true,
+  "compactImagesSquare": true,
+  "compactTitleOrder": [
+    "Agentic Payments and the Future of Sovereign Money",
+    "The Free Software Foundation: What Freedom in Software Means to You",
+    "Sovereign AI: A Fight for the Future of Freedom",
+    "Digital Mindfulness - Show & Tell",
+    "Beginner's Workshop: An Introduction to Monero",
+    "Bitcoin Video and Board Game Night",
+    "Open-Source AI Agent Skill Sharing Night",
+    "OpenClaw Show and Tell Night",
+    "OpenClaw Show and Tell Night",
+    "OpenClaw Show and Tell Night",
+    "Freedom Lab: New Year's Brainstorming",
+    "Bitcoin Video and Board Game Night",
+    "Freedom Lab NYC Holiday Launch Party",
+    "Workshop: How to Vibe Code with Open Source Tools",
+    "Workshop: Intro to Bitcoin and Mining",
+    "Office Hours: Bitcoin Hardware Support",
+    "Beginner's Class: How to Build a Bitcoin Hardware Wallet",
+    "Office Hours: How to Run a Bitcoin Node",
+    "Hands-On Class: How to Run a Bitcoin Node for Beginners",
+    "Beginner's Workshop: How to Buy Bitcoin P2P (Peer-to-Peer)",
+    "Beginner's Workshop: How to Run a Bitcoin Node",
+    "Beginner's Workshop: How to Mine Bitcoin",
+    "Bitcoin Trivia Night",
+    "Grassroots Aid for Myanmar (Burma)",
+    "Beginner’s Workshop: How Bitcoin Works as A Decentralized Ledger",
+    "Beginner’s Workshop: Secure Your Bitcoin Wallet",
+    "Beginner's Workshop: How to Set up a Bitcoin Hardware Wallet",
+    "How to Get Involved in the Bitcoin Space",
+    "Beginner's Workshop: How to Run a Bitcoin Node",
+    "Workshop: How to Run a Bitcoin Lightning Node for Beginners",
+    "Empire State of Bitcoin Launch Event"
+  ],
+  "compactUsesFullTitles": true,
+  "compactTitlesFit": true,
+  "compactColorLinesAtBottom": true,
+  "removedArchiveSourceText": true,
+  "verticalStorySections": 3,
+  "verticalStoryHeadings": [
+    "How we started",
+    "Where we are",
+    "Where we’re going"
+  ],
+  "eyebrowCount": 0,
+  "sourceLineCount": 0,
+  "decorativeTierLabelCount": 0,
+  "communityShelf": [
+    {
+      "number": "830+",
+      "label": "Total attendees",
+      "detail": "Number of attendees who have RSVP'd to our events"
+    },
+    {
+      "number": "195+",
+      "label": "Repeat attendees",
+      "detail": "Attendees who have returned for more than one event."
+    },
+    {
+      "number": "45+",
+      "label": "Frequent members",
+      "detail": "Frequent participants in our workshops, classes, and events."
+    },
+    {
+      "number": "15+",
+      "label": "Core members",
+      "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."
+    }
+  ],
+  "communityRingCount": 4,
+  "communityStatValues": [
+    "15+",
+    "800+",
+    "45+",
+    "30+"
+  ],
+  "communityStatLabels": [
+    "Core members",
+    "Calendar subscribers",
+    "Attendees per event",
+    "Events hosted"
+  ],
+  "communityTextFits": true,
+  "collage": "panorama",
+  "collageFrames": [
+    {
+      "width": 272,
+      "height": 166
+    },
+    {
+      "width": 222,
+      "height": 175
+    },
+    {
+      "width": 253,
+      "height": 137
+    },
+    {
+      "width": 255,
+      "height": 140
+    }
+  ],
+  "communityFontSizes": {
+    "number": 25,
+    "label": 12,
+    "detail": 9,
+    "statLabel": 12,
+    "statNote": 7.8
+  },
+  "currentStoryImage": {
+    "width": 1242,
+    "height": 864,
+    "src": "../assets/community-01.jpg"
+  },
+  "guestCards": 0,
+  "archiveGuestCards": 4,
+  "standaloneGuestPages": 0,
+  "stageWidths": [
+    816,
+    816,
+    816,
+    816,
+    816
+  ],
+  "overflow": [],
+  "errors": []
+}

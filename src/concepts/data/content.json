@@ -1,0 +1,63 @@
+{
+  "story": {
+    "title": "From Bitcoin workshops to a home for freedom tech",
+    "dek": "Freedom Lab NYC makes powerful tools legible, useful, and social — without sanding away the cypherpunk principles that make them matter.",
+    "started": {
+      "label": "Where we started",
+      "title": "Hands on from day one",
+      "body": "We began as a Bitcoin-focused education group: helping New Yorkers build hardware wallets, run Bitcoin and Lightning nodes, mine bitcoin, and understand the systems they were using."
+    },
+    "now": {
+      "label": "Where we are",
+      "title": "A broader freedom-tech lab",
+      "body": "Bitcoin remains the foundation. Around it, our scope now includes sovereign AI, encryption, self-hosted infrastructure, open-source hardware and software, and any practical tool that protects digital rights. Community growth has earned us a dedicated office inside a working West Village maker space — a foothold for workshops, coworking, and shared experimentation."
+    },
+    "difference": {
+      "label": "What makes us different",
+      "title": "Beginner-accessible. Builder-credible.",
+      "body": "We translate cutting-edge, complex systems for laypeople while preserving a serious environment where advanced users and developers can test, use, and build together. Education is not the warm-up; it is the bridge between tools, users, and better tools."
+    },
+    "next": {
+      "label": "Where we are going",
+      "title": "A street-level Manhattan hub",
+      "body": "Our next home is a permanent, unmistakably Freedom Lab building in central Manhattan: well branded, accessible from the ground floor, and globally visible. It will be a classroom, coworking home, and proving ground where the city’s best freedom-tech developers meet real users — and where AI helps more members become builders without losing sight of usability, usefulness, or rights."
+    }
+  },
+  "existing_stats": [
+    {"value": "15+", "label": "Core members", "note": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."},
+    {"value": "800+", "label": "Calendar subscribers", "note": "People subscribed to the Freedom Lab calendar."},
+    {"value": "45+", "label": "Attendees per event", "note": "Typical attendance at Freedom Lab events."},
+    {"value": "30+", "label": "Events hosted", "note": "Workshops, classes, and community events."}
+  ],
+  "community_rings": [
+    {"value": 830, "display": "830+", "label": "Total attendees", "detail": "Number of attendees who have RSVP'd to our events"},
+    {"value": 196, "display": "195+", "label": "Repeat attendees", "detail": "Attendees who have returned for more than one event."},
+    {"value": 45, "display": "45+", "label": "Frequent members", "detail": "Frequent participants in our workshops, classes, and events."},
+    {"value": 15, "display": "15+", "label": "Core members", "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."}
+  ],
+  "archive": {
+    "count": 31,
+    "past": 30,
+    "upcoming": 1,
+    "category_counts": [
+      {"label": "Bitcoin", "value": 19},
+      {"label": "Sovereign AI", "value": 6},
+      {"label": "Freedom Lab General", "value": 6}
+    ],
+    "date_range": "Oct 2024 — Sep 2026",
+    "source_note": "Event archive and Luma future calendar, checked Aug 22, 2026"
+  },
+  "sources": [
+    {"id": 1, "label": "Freedom Lab mission and language", "url": "https://freedomlab.nyc/"},
+    {"id": 2, "label": "Classes and events page", "url": "https://freedomlab.nyc/classes-events/"},
+    {"id": 3, "label": "Public 30-event archive", "url": "https://freedomlab.nyc/classes-events/events.json"},
+    {"id": 4, "label": "Luma future event feed", "url": "https://api.lu.ma/calendar/get-items?calendar_api_id=cal-ZGCxlwslp1K0wqD&pagination_limit=100&period=future"},
+    {"id": 5, "label": "Seth for Privacy official bio", "url": "https://sethforprivacy.com/about/"},
+    {"id": 6, "label": "Seth for Privacy official GitHub profile", "url": "https://api.github.com/users/sethforprivacy"},
+    {"id": 7, "label": "Free Software Foundation official about page", "url": "https://www.fsf.org/about/"},
+    {"id": 8, "label": "Frank Corva’s Forbes contributor profile", "url": "https://www.forbes.com/sites/frankcorva/"},
+    {"id": 9, "label": "Win Ko Ko Aung at Human Rights Foundation", "url": "https://hrf.org/latest/my-reflections-on-bitcoin-as-freedom-money-in-thailand-burma/"},
+    {"id": 10, "label": "Win Ko Ko Aung’s Bitcoin Policy Institute profile and portrait", "url": "https://www.btcpolicy.org/authors/win-ko-ko-aung"},
+    {"id": 11, "label": "Freedom Lab dashboard and local audited data snapshot", "url": "https://dashboard.freedomlab.nyc/"}
+  ]
+}

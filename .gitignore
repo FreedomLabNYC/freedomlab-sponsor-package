@@ -1,3 +1,8 @@
 node_modules/
 .DS_Store
 .qa/
+docs/concepts/community-collage-options/
+docs/concepts/community-collage-options-reference/
+docs/concepts/community-ring-options/
+docs/concepts/smoke/
+docs/concepts/*/page-*-chat.*

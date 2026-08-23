@@ -4,6 +4,8 @@
 
 Maintain a deterministic, editable, three-page US Letter sponsorship package for Freedom Lab NYC.
 
+The isolated review routes under `src/concepts/` are a concept study, not a silent replacement for the canonical three-page package. Signal Rings is currently five pages; the other studies are seven. Promote one only after the user selects a direction.
+
 ## Invariants
 
 - Page order is fixed unless the user explicitly changes it:
@@ -16,6 +18,7 @@ Maintain a deterministic, editable, three-page US Letter sponsorship package for
 - Preserve the dark background system and soft-white body text.
 - Do not use paid or nondeterministic image generation.
 - Do not silently rewrite user-supplied copy, prices, statistics, or photos.
+- Keep exactly one Community ring per displayed community tier. The concept exporter enforces ring and legend-tier parity.
 - Page 1 is approved raster artwork. Pages 2 and 3 must remain editable HTML/CSS.
 
 ## Key content
@@ -55,6 +58,12 @@ npm run export:pdf
 4. Verify the command reports `pageCount: 3` and `imagesLoaded: true`.
 5. Inspect the PDF visually before claiming completion.
 6. Commit the regenerated `dist/freedom-lab-sponsorship-package.pdf` with source edits.
+
+### Accepted-change checkpoints
+
+- After each accepted concept change, run `npm run export:concepts` and `npm run smoke:concepts`, then commit the source, derived assets, QA JSON, page renders, and regenerated PDF together.
+- Publish `dist/concepts/signal-rings.pdf` to `freedomlab.nyc/pdf1/` in a separate website-repository commit and verify the live PDF hash and rendered changed page.
+- Do not stack multiple accepted visual changes in one uncommitted working-tree blob. Each accepted state should be independently revertible with Git.
 
 ## Visual quality
 

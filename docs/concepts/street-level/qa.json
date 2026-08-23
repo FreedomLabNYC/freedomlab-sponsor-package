@@ -1,0 +1,98 @@
+{
+  "option": "Option C — Street Level",
+  "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/street-level.pdf",
+  "pageCount": 7,
+  "imagesLoaded": true,
+  "imageCount": 43,
+  "eventCards": 31,
+  "compactEventCards": 0,
+  "compactTitlesPresent": true,
+  "compactImagesSquare": true,
+  "compactTitleOrder": [],
+  "compactUsesFullTitles": true,
+  "compactTitlesFit": true,
+  "compactColorLinesAtBottom": true,
+  "removedArchiveSourceText": true,
+  "verticalStorySections": 0,
+  "verticalStoryHeadings": [],
+  "eyebrowCount": 10,
+  "sourceLineCount": 5,
+  "decorativeTierLabelCount": 4,
+  "communityShelf": [
+    {
+      "number": "830+",
+      "label": "Total attendees",
+      "detail": "Number of attendees who have RSVP'd to our events"
+    },
+    {
+      "number": "195+",
+      "label": "Repeat attendees",
+      "detail": "Attendees who have returned for more than one event."
+    },
+    {
+      "number": "45+",
+      "label": "Frequent members",
+      "detail": "Frequent participants in our workshops, classes, and events."
+    },
+    {
+      "number": "15+",
+      "label": "Core members",
+      "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."
+    }
+  ],
+  "communityRingCount": 4,
+  "communityStatValues": [
+    "15+",
+    "800+",
+    "45+",
+    "30+"
+  ],
+  "communityStatLabels": [
+    "Core members",
+    "Calendar subscribers",
+    "Attendees per event",
+    "Events hosted"
+  ],
+  "communityTextFits": true,
+  "collage": "panorama",
+  "collageFrames": [
+    {
+      "width": 179,
+      "height": 185
+    },
+    {
+      "width": 179,
+      "height": 185
+    },
+    {
+      "width": 179,
+      "height": 185
+    },
+    {
+      "width": 179,
+      "height": 185
+    }
+  ],
+  "communityFontSizes": {
+    "number": 20,
+    "label": 10,
+    "detail": 7.5,
+    "statLabel": 8,
+    "statNote": 6.5
+  },
+  "currentStoryImage": null,
+  "guestCards": 4,
+  "archiveGuestCards": 0,
+  "standaloneGuestPages": 1,
+  "stageWidths": [
+    816,
+    816,
+    816,
+    816,
+    816,
+    816,
+    816
+  ],
+  "overflow": [],
+  "errors": []
+}

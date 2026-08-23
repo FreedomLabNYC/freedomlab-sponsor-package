@@ -39,6 +39,29 @@ npm run preview
 
 Open http://localhost:8000.
 
+## Sponsor package concept study
+
+Four isolated, complete deck directions live at:
+
+```text
+http://localhost:8000/concepts/
+```
+
+- **Signal Rings** — cinematic, human, and data-forward
+- **Field Notes** — light editorial documentary
+- **Street Level** — architectural and Manhattan-focused
+- **Open Protocol** — technical and cypherpunk
+
+Each option includes the current cover, a new Freedom Lab story page, audited community RSVP rings, four verified featured guests, all 31 archived/upcoming events, and the existing sponsorship tiers. Signal Rings uses five pages by integrating featured guests into Classes & Events and fitting all 31 square event images and full event titles into one half-page grid; the other studies remain seven pages. The canonical three-page package is unchanged while the concepts are under review.
+
+```bash
+npm run prepare:concepts
+npm run export:concepts
+npm run smoke:concepts
+```
+
+Concept PDFs are written to `dist/concepts/`; page renders and contact sheets are written to `docs/concepts/`. Research and source provenance are in `docs/concepts/RESEARCH.md`.
+
 ## Export the PDF
 
 ```bash

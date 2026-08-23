@@ -1,0 +1,77 @@
+[
+  {
+    "slug": "seth-for-privacy",
+    "name": "Seth for Privacy",
+    "role": "Privacy educator \u00b7 COO, Cake Wallet \u00b7 Host, Opt Out",
+    "bio": "A privacy educator and open-source operator who turns Bitcoin, Monero, self-hosting, and data sovereignty into practical guidance people can use.",
+    "highlights": [
+      "COO of Cake Wallet",
+      "Hosts the FOSS and privacy-focused Opt Out podcast",
+      "Runs public Bitcoin, Monero, and privacy infrastructure"
+    ],
+    "image_url": "https://avatars.githubusercontent.com/u/40500387?v=4",
+    "image_source": "https://github.com/sethforprivacy",
+    "source_urls": [
+      "https://sethforprivacy.com/about/",
+      "https://api.github.com/users/sethforprivacy"
+    ],
+    "image_note": "Official public GitHub profile avatar; used instead of a face photo to respect a pseudonymous privacy educator.",
+    "image": "assets/guest-seth-for-privacy.jpg"
+  },
+  {
+    "slug": "free-software-foundation",
+    "name": "Free Software Foundation",
+    "role": "Defending computer user freedom since 1985",
+    "bio": "The nonprofit behind a worldwide movement for software freedom: sponsor of GNU, publisher of the GNU GPL, and a leading defender of users\u2019 right to run, study, share, and modify software.",
+    "highlights": [
+      "Sponsors the GNU Project",
+      "Publishes the GNU GPL, LGPL, and AGPL",
+      "Defends free-software licenses through its compliance lab"
+    ],
+    "image_url": "https://static.fsf.org/common/img/logo-new.png",
+    "image_source": "https://www.fsf.org/about/",
+    "source_urls": [
+      "https://www.fsf.org/about/"
+    ],
+    "image_note": "Official organization logo; the featured guest is an institution, not one individual.",
+    "image_fit": "contain",
+    "image": "assets/guest-free-software-foundation.jpg"
+  },
+  {
+    "slug": "frank-corva",
+    "name": "Frank Corva",
+    "role": "Forbes contributor \u00b7 Host, new renaissance capital",
+    "bio": "A New York\u2013based journalist covering Bitcoin adoption around the world, especially in developing countries; formerly Bitcoin Magazine\u2019s White House correspondent.",
+    "highlights": [
+      "Forbes contributor focused on global Bitcoin adoption",
+      "Host of new renaissance capital",
+      "Former White House correspondent for Bitcoin Magazine"
+    ],
+    "image_url": "https://imageio.forbes.com/specials-images/imageserve/65e6429e7cf33516662c7e8a/0x0.jpg?format=jpg&crop=3024,3023,x0,y0,safe&width=900",
+    "image_source": "https://www.forbes.com/sites/frankcorva/",
+    "source_urls": [
+      "https://www.forbes.com/sites/frankcorva/"
+    ],
+    "image_note": "Official Forbes contributor portrait.",
+    "image": "assets/guest-frank-corva.jpg"
+  },
+  {
+    "slug": "win-ko-ko-aung",
+    "name": "Win Ko Ko Aung",
+    "role": "Global Bitcoin Adoption Fellow \u00b7 Human Rights Foundation",
+    "bio": "A Burmese activist and refugee who helps nonprofits under authoritarian regimes use Bitcoin for financial freedom. His 2025 aid campaign funded tens of thousands of meals and rice for 350 households in Burma.",
+    "highlights": [
+      "Global Bitcoin Adoption Fellow at HRF",
+      "Former Bitcoin Policy Institute Human Rights Fellow",
+      "Raised 5M+ sats for direct earthquake relief in Burma"
+    ],
+    "image_url": "https://cdn.prod.website-files.com/68ff9c2befb06be21a39e123/690924badac253a6bc9978d9_65411bdca525b2739d9eec21_Ko%2520Ko%2520Aung.avif",
+    "image_source": "https://www.btcpolicy.org/authors/win-ko-ko-aung",
+    "source_urls": [
+      "https://hrf.org/latest/my-reflections-on-bitcoin-as-freedom-money-in-thailand-burma/",
+      "https://www.btcpolicy.org/authors/win-ko-ko-aung"
+    ],
+    "image_note": "Official Bitcoin Policy Institute fellow portrait.",
+    "image": "assets/guest-win-ko-ko-aung.jpg"
+  }
+]

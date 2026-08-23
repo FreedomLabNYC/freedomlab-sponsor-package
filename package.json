@@ -5,7 +5,10 @@
   "description": "Editable Freedom Lab NYC sponsorship package",
   "scripts": {
     "preview": "python3 -m http.server 8000 --directory src",
-    "export:pdf": "node scripts/export-pdf.mjs"
+    "export:pdf": "node scripts/export-pdf.mjs",
+    "prepare:concepts": "python3 scripts/prepare-concept-assets.py",
+    "export:concepts": "node scripts/export-concepts.mjs",
+    "smoke:concepts": "node scripts/smoke-concepts.mjs"
   },
   "devDependencies": {
     "pdf-lib": "1.17.1",
