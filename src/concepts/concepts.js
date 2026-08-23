@@ -26,14 +26,11 @@ const optionKey = Object.hasOwn(OPTIONS, requested) ? requested : 'a'
 const option = OPTIONS[optionKey]
 const requestedCollage = new URLSearchParams(location.search).get('collage') || 'panorama'
 const collageKey = ['panorama', 'spotlight', 'staggered'].includes(requestedCollage) ? requestedCollage : 'panorama'
-const requestedRingStudy = new URLSearchParams(location.search).get('ring-study') || ''
-const ringStudyKey = ['stacked', 'arc', 'split'].includes(requestedRingStudy) ? requestedRingStudy : ''
 const totalPages = optionKey === 'a' ? 5 : 7
 const documentRoot = document.querySelector('#document')
 
 document.documentElement.dataset.option = optionKey
 document.documentElement.dataset.collage = collageKey
-document.documentElement.dataset.ringStudy = ringStudyKey
 document.title = `Freedom Lab NYC — ${option.name}`
 
 const [content, guests, events] = await Promise.all([
@@ -85,26 +82,19 @@ function storyBlock(key, value) {
 
 function ringSystem(rings) {
   const max = rings[0].value
-  const showStudy = optionKey === 'a' && ringStudyKey
   return `
     <div class="ring-system" role="img" aria-label="Concentric community rings from ${rings[0].display} total attendees to ${rings.at(-1).display} core members">
       <div class="ring-glow"></div>
       ${rings.map((ring, index) => {
         const diameter = 390 - index * 66
         const ratio = ring.value / max
-        return `<div class="orbit orbit-${index}" style="--diameter:${diameter}px;--ratio:${ratio}"><span></span>${showStudy && index < 3 ? `<div class="ring-study-marker">${ring.display || ring.value}</div>` : ''}</div>`
+        return `<div class="orbit orbit-${index}" style="--diameter:${diameter}px;--ratio:${ratio}"><span></span></div>`
       }).join('')}
-      <div class="ring-core${showStudy ? ' ring-study-core' : ''}"><strong>${rings.at(-1).display || rings.at(-1).value}</strong><span>${rings.at(-1).label}</span></div>
+      <div class="ring-core"><strong>${rings.at(-1).display || rings.at(-1).value}</strong><span>${rings.at(-1).label}</span></div>
     </div>`
 }
 
 function ringLegend(rings) {
-  if (optionKey === 'a' && ringStudyKey) {
-    return `
-      <section class="ring-study-callouts" aria-label="Community tier descriptions">
-        ${rings.map((ring) => `<article><strong>${ring.label}</strong><small>${ring.detail}</small></article>`).join('')}
-      </section>`
-  }
   return `
     <ol class="ring-legend">
       ${rings.map((ring, index) => `
@@ -327,7 +317,7 @@ const markup = [
   page(2, 'story-page', 'Freedom Lab NYC story, present, and future', storyPageBody),
   page(3, 'momentum-page', 'Freedom Lab community momentum', `
     ${optionKey === 'a' ? heading('', 'Community') : heading('Community momentum', 'An open door — with a real core', 'The audience keeps widening. A meaningful group keeps coming back.')}
-    <section class="momentum-main${ringStudyKey ? ` ring-study-${ringStudyKey}` : ''}">
+    <section class="momentum-main">
       ${ringSystem(content.community_rings)}
       ${ringLegend(content.community_rings)}
     </section>
