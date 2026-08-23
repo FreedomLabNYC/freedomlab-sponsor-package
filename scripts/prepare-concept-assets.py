@@ -133,7 +133,7 @@ GUESTS = [
     {
         "slug": "win-ko-ko-aung",
         "name": "Win Ko Ko Aung",
-        "role": "Global Bitcoin Adoption Fellow · Human Rights Foundation",
+        "role": "Exiled Burmese human rights activist · Global Bitcoin Adoption Fellow · Human Rights Foundation",
         "bio": (
             "A Burmese activist and refugee who helps nonprofits under authoritarian "
             "regimes use Bitcoin for financial freedom. His 2025 aid campaign funded "

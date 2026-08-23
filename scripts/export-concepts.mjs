@@ -219,7 +219,17 @@ try {
         guestCards: document.querySelectorAll('.guest-card').length,
         archiveGuestCards: document.querySelectorAll('.archive-guest-card').length,
         frankCorvaRole: [...document.querySelectorAll('.archive-guest-card')].find((card) => card.querySelector('h3')?.textContent.trim() === 'Frank Corva')?.querySelector('p')?.textContent.trim() || null,
+        winKoKoAungRole: [...document.querySelectorAll('.archive-guest-card')].find((card) => card.querySelector('h3')?.textContent.trim() === 'Win Ko Ko Aung')?.querySelector('p')?.textContent.trim() || null,
         archiveGuestRolesFit: [...document.querySelectorAll('.archive-guest-card p')].every((role) => role.scrollHeight <= role.clientHeight + 1),
+        archiveProgramCopy: {
+          heading: document.querySelector('.archive-program-copy h2')?.textContent.trim() || null,
+          paragraph: document.querySelector('.archive-program-copy p')?.textContent.trim() || null,
+          fits: (() => {
+            const copy = document.querySelector('.archive-program-copy')
+            const content = copy?.firstElementChild
+            return Boolean(copy && content && content.getBoundingClientRect().bottom <= copy.getBoundingClientRect().bottom + 1)
+          })(),
+        },
         standaloneGuestPages: document.querySelectorAll('.guests-page').length,
         archiveGuestsFirst: (() => {
           const guestsSection = document.querySelector('.compact-archive-page .archive-guests')
@@ -306,7 +316,9 @@ try {
     if (option.key === 'a' && (state.fsfGuestImage?.width !== 580 || state.fsfGuestImage?.height !== 580 || !state.fsfGuestImage.src.endsWith('/guest-free-software-foundation.jpg'))) throw new Error(`${option.name}: Free Software Foundation does not use the approved Giving Guide logo`)
     if (option.key === 'a' && state.archiveGuestCards !== 4) throw new Error(`${option.name}: expected 4 guest profiles on Classes & Events, found ${state.archiveGuestCards}`)
     if (option.key === 'a' && state.frankCorvaRole !== 'Forbes contributor · White House Correspondent, Bitcoin Magazine · Host, new renaissance capital') throw new Error(`${option.name}: Frank Corva credits are incorrect`)
+    if (option.key === 'a' && state.winKoKoAungRole !== 'Exiled Burmese human rights activist · Global Bitcoin Adoption Fellow · Human Rights Foundation') throw new Error(`${option.name}: Win Ko Ko Aung credits are incorrect`)
     if (option.key === 'a' && !state.archiveGuestRolesFit) throw new Error(`${option.name}: a Featured guests credit line is clipped`)
+    if (option.key === 'a' && (state.archiveProgramCopy.heading !== 'Our events' || state.archiveProgramCopy.paragraph !== 'Every event is carefully curated to build community around freedom tech and provide practical skills to the layperson and advanced user alike. For each educational event, we ensure participants walk away with a strong foundational knowledge of the landscape and practical ways to use the technology, building an audience of highly engaged freedom tech enthusiasts.' || !state.archiveProgramCopy.fits)) throw new Error(`${option.name}: Our events copy is incorrect or clipped`)
     if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot !== 112 || state.archiveLayout.guestHeight !== 322)) throw new Error(`${option.name}: Featured guests is not the approved enlarged 2x2 grid`)
     if (option.key === 'a' && (new Set(state.archiveLayout.widths).size !== 1 || new Set(state.archiveLayout.lefts).size !== 1)) throw new Error(`${option.name}: Classes & Events sections do not share the same width and alignment`)
     if (option.key === 'a' && (!state.archiveLayout.guestCardsContained || state.archiveLayout.guestToLowerGap < 16 || state.archiveLayout.lowerToEventsGap < 18 || state.archiveLayout.lowerHeight > 76 || state.archiveLayout.eventCopyMaxHeight > 26)) throw new Error(`${option.name}: Classes & Events sections overlap or event copy boxes are too tall`)

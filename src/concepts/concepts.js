@@ -182,8 +182,8 @@ function compactArchivePage(number) {
         <div class="archive-count-block"><strong>30+</strong><span>events</span></div>
         <div class="archive-program-copy">
           <div>
-            <h2>What we teach</h2>
-            <p>Hands-on Bitcoin fundamentals grew into privacy, open-source AI, software freedom, digital mindfulness, and community experimentation.</p>
+            <h2>Our events</h2>
+            <p>Every event is carefully curated to build community around freedom tech and provide practical skills to the layperson and advanced user alike. For each educational event, we ensure participants walk away with a strong foundational knowledge of the landscape and practical ways to use the technology, building an audience of highly engaged freedom tech enthusiasts.</p>
           </div>
         </div>
       </div>

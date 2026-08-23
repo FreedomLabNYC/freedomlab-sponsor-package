@@ -1,7 +1,7 @@
 {
   "option": "Option A — Signal Rings",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
-  "pdfBytes": 8432068,
+  "pdfBytes": 8433375,
   "linearized": true,
   "pageCount": 5,
   "imagesLoaded": true,
@@ -360,7 +360,13 @@
   "guestCards": 0,
   "archiveGuestCards": 4,
   "frankCorvaRole": "Forbes contributor · White House Correspondent, Bitcoin Magazine · Host, new renaissance capital",
+  "winKoKoAungRole": "Exiled Burmese human rights activist · Global Bitcoin Adoption Fellow · Human Rights Foundation",
   "archiveGuestRolesFit": true,
+  "archiveProgramCopy": {
+    "heading": "Our events",
+    "paragraph": "Every event is carefully curated to build community around freedom tech and provide practical skills to the layperson and advanced user alike. For each educational event, we ensure participants walk away with a strong foundational knowledge of the landscape and practical ways to use the technology, building an audience of highly engaged freedom tech enthusiasts.",
+    "fits": true
+  },
   "standaloneGuestPages": 0,
   "archiveGuestsFirst": true,
   "archiveLayout": {
