@@ -111,7 +111,7 @@ GUESTS = [
     {
         "slug": "frank-corva",
         "name": "Frank Corva",
-        "role": "Forbes contributor · White House Correspondent, Bitcoin Magazine · Host, new renaissance capital",
+        "role": "White House Correspondent, BTC Media",
         "bio": (
             "A New York–based journalist covering Bitcoin adoption around the world, "
             "especially in developing countries; formerly Bitcoin Magazine’s White "
