@@ -18,7 +18,8 @@ The isolated review routes under `src/concepts/` are a concept study, not a sile
 - Preserve the dark background system and soft-white body text.
 - Do not use paid or nondeterministic image generation.
 - Do not silently rewrite user-supplied copy, prices, statistics, or photos.
-- Keep exactly one Community ring per displayed community tier. The concept exporter enforces ring and legend-tier parity.
+- Keep exactly one Community visual level per displayed tier: one center core plus one outline for every non-core tier. The concept exporter enforces visual-level and legend-tier parity.
+- Preserve `public_title` values in the event manifest as the approved public-facing abbreviated titles; the compact archive renders those titles in no more than two lines.
 - Page 1 is approved raster artwork. Pages 2 and 3 must remain editable HTML/CSS.
 
 ## Key content

@@ -1,7 +1,7 @@
 {
   "option": "Option C — Street Level",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/street-level.pdf",
-  "pdfBytes": 12997513,
+  "pdfBytes": 12994133,
   "linearized": true,
   "pageCount": 7,
   "imagesLoaded": true,
@@ -11,8 +11,9 @@
   "compactTitlesPresent": true,
   "compactImagesSquare": true,
   "compactTitleOrder": [],
-  "compactUsesFullTitles": true,
+  "compactUsesPublicTitles": true,
   "compactTitlesFit": true,
+  "compactTitlesUseTwoLines": true,
   "compactColorLinesAtBottom": true,
   "removedArchiveSourceText": true,
   "verticalStorySections": 0,
@@ -22,7 +23,7 @@
   "decorativeTierLabelCount": 4,
   "communityShelf": [
     {
-      "number": "830+",
+      "number": "800+",
       "label": "Total attendees",
       "detail": "Number of attendees who have RSVP'd to our events"
     },
@@ -42,7 +43,8 @@
       "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."
     }
   ],
-  "communityRingCount": 4,
+  "communityRingCount": 3,
+  "communityCoreCount": 1,
   "communityStatValues": [
     "15+",
     "800+",
@@ -86,6 +88,11 @@
   "guestCards": 4,
   "archiveGuestCards": 0,
   "standaloneGuestPages": 1,
+  "archiveGuestsFirst": false,
+  "archiveHasDateRange": false,
+  "archiveHasPublicTotal": false,
+  "archiveBlankCount": 0,
+  "archiveKeyLabels": [],
   "stageWidths": [
     816,
     816,

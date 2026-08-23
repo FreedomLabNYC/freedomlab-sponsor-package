@@ -14,6 +14,19 @@ const options = [
   { key: 'c', slug: 'street-level', name: 'Option C — Street Level', pages: 7 },
   { key: 'd', slug: 'open-protocol', name: 'Option D — Open Protocol', pages: 7 },
 ]
+const approvedPublicTitles = [
+  'How to Run a Bitcoin Lightning Node',
+  'Workshop:How to Run a Bitcoin Node',
+  'The Basics: Bitcoin Hardware Wallets',
+  'Workshop: Secure Your Bitcoin Wallet',
+  'How Bitcoin Works as A Decentralized Ledger',
+  'How to Buy Bitcoin P2P (Peer-to-Peer)',
+  'Hands-On Class: How to Run a Bitcoin Node',
+  'How to Build a Bitcoin Hardware Wallet',
+  'Workshop: How to Vibe Code with Open Source',
+  'What Freedom in Software Means to You',
+  'Agentic Payments and the Future of Sovereignty',
+]
 
 const types = {
   '.avif': 'image/avif',
@@ -85,8 +98,9 @@ try {
         compactTitlesPresent: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.textContent.trim().length > 0),
         compactImagesSquare: [...document.querySelectorAll('.compact-event-card .event-image')].every((image) => Math.abs(image.getBoundingClientRect().width - image.getBoundingClientRect().height) < 1),
         compactTitleOrder: [...document.querySelectorAll('.compact-event-card h2')].map((title) => title.textContent.trim()),
-        compactUsesFullTitles: [...document.querySelectorAll('.compact-event-card')].every((card) => card.querySelector('h2')?.textContent.trim() === card.getAttribute('title')),
+        compactUsesPublicTitles: [...document.querySelectorAll('.compact-event-card')].every((card) => card.querySelector('h2')?.textContent.trim() === card.dataset.publicTitle),
         compactTitlesFit: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.scrollHeight <= title.clientHeight + 1),
+        compactTitlesUseTwoLines: [...document.querySelectorAll('.compact-event-card h2')].every((title) => getComputedStyle(title).webkitLineClamp === '2'),
         compactColorLinesAtBottom: [...document.querySelectorAll('.compact-event-card')].every((card) => {
           const style = getComputedStyle(card)
           return parseFloat(style.borderBottomWidth) === 3 && parseFloat(style.borderTopWidth) === 0
@@ -103,6 +117,7 @@ try {
           detail: row.querySelector('small')?.textContent.trim(),
         })),
         communityRingCount: document.querySelectorAll('.momentum-page .orbit').length,
+        communityCoreCount: document.querySelectorAll('.momentum-page .ring-core').length,
         communityStatValues: [...document.querySelectorAll('.momentum-page .legacy-stats article > strong')].map((value) => value.textContent.trim()),
         communityStatLabels: [...document.querySelectorAll('.momentum-page .legacy-stats article > span')].map((label) => label.textContent.trim()),
         communityTextFits: [...document.querySelectorAll('.momentum-page .ring-legend li,.momentum-page .legacy-stats article')].every((element) => element.scrollHeight <= element.clientHeight + 1),
@@ -131,6 +146,16 @@ try {
         guestCards: document.querySelectorAll('.guest-card').length,
         archiveGuestCards: document.querySelectorAll('.archive-guest-card').length,
         standaloneGuestPages: document.querySelectorAll('.guests-page').length,
+        archiveGuestsFirst: (() => {
+          const guestsSection = document.querySelector('.compact-archive-page .archive-guests')
+          const lowerSection = document.querySelector('.compact-archive-page .archive-overview-lower')
+          return Boolean(guestsSection && lowerSection && guestsSection.getBoundingClientRect().top < lowerSection.getBoundingClientRect().top)
+        })(),
+        archiveCountText: document.querySelector('.compact-archive-page .archive-count-block')?.innerText.replace(/\s+/g, ' ').trim(),
+        archiveHasDateRange: document.querySelector('.compact-archive-page')?.innerText.includes('Oct 2024') || false,
+        archiveHasPublicTotal: document.querySelector('.compact-archive-page')?.innerText.includes('events in public') || false,
+        archiveBlankCount: document.querySelectorAll('.compact-archive-page .compact-archive-blank').length,
+        archiveKeyLabels: [...document.querySelectorAll('.compact-archive-page .compact-archive-key span')].map((label) => label.textContent.trim()),
         stageWidths: [...document.querySelectorAll('.page-stage')].map((stage) => Math.round(stage.getBoundingClientRect().width)),
         overflow: overflow.slice(0, 20),
       }
@@ -143,10 +168,12 @@ try {
     if (option.key === 'a' && state.compactEventCards !== 31) throw new Error(`${option.name}: expected 31 compact event cards, found ${state.compactEventCards}`)
     if (option.key === 'a' && !state.compactTitlesPresent) throw new Error(`${option.name}: one or more compact event titles are missing`)
     if (option.key === 'a' && !state.compactImagesSquare) throw new Error(`${option.name}: one or more compact event images are not square`)
-    if (option.key === 'a' && state.compactTitleOrder[0] !== 'Agentic Payments and the Future of Sovereign Money') throw new Error(`${option.name}: newest event is not first`)
+    if (option.key === 'a' && state.compactTitleOrder[0] !== 'Agentic Payments and the Future of Sovereignty') throw new Error(`${option.name}: newest event is not first`)
     if (option.key === 'a' && state.compactTitleOrder.at(-1) !== 'Empire State of Bitcoin Launch Event') throw new Error(`${option.name}: oldest event is not last`)
-    if (option.key === 'a' && !state.compactUsesFullTitles) throw new Error(`${option.name}: one or more event cards use an abbreviated title`)
-    if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more full event titles are clipped`)
+    if (option.key === 'a' && !state.compactUsesPublicTitles) throw new Error(`${option.name}: a compact event card ignored its approved public title`)
+    if (option.key === 'a' && approvedPublicTitles.some((title) => !state.compactTitleOrder.includes(title))) throw new Error(`${option.name}: one or more approved public titles are missing`)
+    if (option.key === 'a' && !state.compactTitlesUseTwoLines) throw new Error(`${option.name}: compact event titles are not constrained to two lines`)
+    if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more public event titles need more than two lines`)
     if (option.key === 'a' && !state.compactColorLinesAtBottom) throw new Error(`${option.name}: event color lines are not on the bottom edge`)
     if (option.key === 'a' && !state.removedArchiveSourceText) throw new Error(`${option.name}: removed archive source text is still visible`)
     if (option.key === 'a' && state.verticalStorySections !== 3) throw new Error(`${option.name}: expected three vertical story sections`)
@@ -154,17 +181,23 @@ try {
     if (option.key === 'a' && state.eyebrowCount !== 0) throw new Error(`${option.name}: eyebrow or kicker text remains in the selected deck`)
     if (option.key === 'a' && state.sourceLineCount !== 0) throw new Error(`${option.name}: source attribution remains in the selected deck`)
     if (option.key === 'a' && state.decorativeTierLabelCount !== 0) throw new Error(`${option.name}: decorative tier labels remain in the selected deck`)
-    if (option.key === 'a' && state.communityRingCount !== state.communityShelf.length) throw new Error(`${option.name}: ${state.communityRingCount} rings do not match ${state.communityShelf.length} community tiers`)
-    if (option.key === 'a' && state.communityShelf.map((row) => row.number).join('|') !== '830+|195+|45+|15+') throw new Error(`${option.name}: community shelf values are not rounded down with plus signs`)
+    if (option.key === 'a' && state.communityRingCount + state.communityCoreCount !== state.communityShelf.length) throw new Error(`${option.name}: ring outlines plus center core do not match the community tiers`)
+    if (option.key === 'a' && state.communityShelf.map((row) => row.number).join('|') !== '800+|195+|45+|15+') throw new Error(`${option.name}: community shelf values do not match the approved wording`)
     if (option.key === 'a' && state.communityShelf.map((row) => row.label).join('|') !== 'Total attendees|Repeat attendees|Frequent members|Core members') throw new Error(`${option.name}: community shelf labels do not match the approved wording`)
     if (option.key === 'a' && state.communityShelf.map((row) => row.detail).join('|') !== "Number of attendees who have RSVP'd to our events|Attendees who have returned for more than one event.|Frequent participants in our workshops, classes, and events.|Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together.") throw new Error(`${option.name}: community shelf descriptions do not match the approved wording`)
     if (option.key === 'a' && state.communityStatValues.join('|') !== '15+|800+|45+|30+') throw new Error(`${option.name}: community stat values are not rounded down with plus signs`)
     if (option.key === 'a' && state.communityStatLabels.join('|') !== 'Core members|Calendar subscribers|Attendees per event|Events hosted') throw new Error(`${option.name}: community stat labels do not match the approved wording`)
     if (option.key === 'a' && !state.communityTextFits) throw new Error(`${option.name}: enlarged community copy clips its containers`)
-    if (option.key === 'a' && (state.communityFontSizes.number < 25 || state.communityFontSizes.label < 12 || state.communityFontSizes.detail < 9 || state.communityFontSizes.statLabel < 12 || state.communityFontSizes.statNote < 7.8)) throw new Error(`${option.name}: community typography is smaller than the approved readability floor`)
+    if (option.key === 'a' && (state.communityFontSizes.number < 25 || state.communityFontSizes.label < 13.5 || state.communityFontSizes.detail < 10.2 || state.communityFontSizes.statLabel < 13.5 || state.communityFontSizes.statNote < 9.2)) throw new Error(`${option.name}: community typography is smaller than the approved readability floor`)
     if (option.key === 'a' && (state.currentStoryImage?.width !== 1242 || state.currentStoryImage?.height !== 864)) throw new Error(`${option.name}: current-space photo is not the verified 1242×864 source`)
     if (option.key === 'a' && state.archiveGuestCards !== 4) throw new Error(`${option.name}: expected 4 guest profiles on Classes & Events, found ${state.archiveGuestCards}`)
     if (option.key === 'a' && state.standaloneGuestPages !== 0) throw new Error(`${option.name}: standalone Featured guests page still exists`)
+    if (option.key === 'a' && !state.archiveGuestsFirst) throw new Error(`${option.name}: Featured guests is not the first Classes & Events section`)
+    if (option.key === 'a' && state.archiveCountText !== '30+ events') throw new Error(`${option.name}: Classes & Events count is not 30+ events`)
+    if (option.key === 'a' && state.archiveHasDateRange) throw new Error(`${option.name}: removed Classes & Events date range is still visible`)
+    if (option.key === 'a' && state.archiveHasPublicTotal) throw new Error(`${option.name}: removed events-in-public total is still visible`)
+    if (option.key === 'a' && state.archiveBlankCount !== 1) throw new Error(`${option.name}: compact archive must end with one blank square`)
+    if (option.key === 'a' && state.archiveKeyLabels.join('|') !== 'Bitcoin|Sovereign AI|Freedom Lab General') throw new Error(`${option.name}: subtle bottom event key is missing or incorrect`)
     if (option.key !== 'a' && state.guestCards !== 4) throw new Error(`${option.name}: expected 4 guest cards, found ${state.guestCards}`)
     if (state.overflow.length) throw new Error(`${option.name}: elements overflow page bounds\n${JSON.stringify(state.overflow, null, 2)}`)
     if (errors.length) throw new Error(`${option.name}: ${errors.join('\n')}`)

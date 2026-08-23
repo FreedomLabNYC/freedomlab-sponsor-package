@@ -1,7 +1,7 @@
 {
   "option": "Option A — Signal Rings",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
-  "pdfBytes": 8085311,
+  "pdfBytes": 8108335,
   "linearized": true,
   "pageCount": 5,
   "imagesLoaded": true,
@@ -11,8 +11,8 @@
   "compactTitlesPresent": true,
   "compactImagesSquare": true,
   "compactTitleOrder": [
-    "Agentic Payments and the Future of Sovereign Money",
-    "The Free Software Foundation: What Freedom in Software Means to You",
+    "Agentic Payments and the Future of Sovereignty",
+    "What Freedom in Software Means to You",
     "Sovereign AI: A Fight for the Future of Freedom",
     "Digital Mindfulness - Show & Tell",
     "Beginner's Workshop: An Introduction to Monero",
@@ -24,27 +24,28 @@
     "Freedom Lab: New Year's Brainstorming",
     "Bitcoin Video and Board Game Night",
     "Freedom Lab NYC Holiday Launch Party",
-    "Workshop: How to Vibe Code with Open Source Tools",
+    "Workshop: How to Vibe Code with Open Source",
     "Workshop: Intro to Bitcoin and Mining",
     "Office Hours: Bitcoin Hardware Support",
-    "Beginner's Class: How to Build a Bitcoin Hardware Wallet",
+    "How to Build a Bitcoin Hardware Wallet",
     "Office Hours: How to Run a Bitcoin Node",
-    "Hands-On Class: How to Run a Bitcoin Node for Beginners",
-    "Beginner's Workshop: How to Buy Bitcoin P2P (Peer-to-Peer)",
-    "Beginner's Workshop: How to Run a Bitcoin Node",
+    "Hands-On Class: How to Run a Bitcoin Node",
+    "How to Buy Bitcoin P2P (Peer-to-Peer)",
+    "Workshop:How to Run a Bitcoin Node",
     "Beginner's Workshop: How to Mine Bitcoin",
     "Bitcoin Trivia Night",
     "Grassroots Aid for Myanmar (Burma)",
-    "Beginner’s Workshop: How Bitcoin Works as A Decentralized Ledger",
-    "Beginner’s Workshop: Secure Your Bitcoin Wallet",
-    "Beginner's Workshop: How to Set up a Bitcoin Hardware Wallet",
+    "How Bitcoin Works as A Decentralized Ledger",
+    "Workshop: Secure Your Bitcoin Wallet",
+    "The Basics: Bitcoin Hardware Wallets",
     "How to Get Involved in the Bitcoin Space",
-    "Beginner's Workshop: How to Run a Bitcoin Node",
-    "Workshop: How to Run a Bitcoin Lightning Node for Beginners",
+    "Workshop:How to Run a Bitcoin Node",
+    "How to Run a Bitcoin Lightning Node",
     "Empire State of Bitcoin Launch Event"
   ],
-  "compactUsesFullTitles": true,
+  "compactUsesPublicTitles": true,
   "compactTitlesFit": true,
+  "compactTitlesUseTwoLines": true,
   "compactColorLinesAtBottom": true,
   "removedArchiveSourceText": true,
   "verticalStorySections": 3,
@@ -58,7 +59,7 @@
   "decorativeTierLabelCount": 0,
   "communityShelf": [
     {
-      "number": "830+",
+      "number": "800+",
       "label": "Total attendees",
       "detail": "Number of attendees who have RSVP'd to our events"
     },
@@ -78,7 +79,8 @@
       "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."
     }
   ],
-  "communityRingCount": 4,
+  "communityRingCount": 3,
+  "communityCoreCount": 1,
   "communityStatValues": [
     "15+",
     "800+",
@@ -113,10 +115,10 @@
   ],
   "communityFontSizes": {
     "number": 25,
-    "label": 12,
-    "detail": 9,
-    "statLabel": 12,
-    "statNote": 7.8
+    "label": 13.5,
+    "detail": 10.2,
+    "statLabel": 13.5,
+    "statNote": 9.2
   },
   "currentStoryImage": {
     "width": 1242,
@@ -126,6 +128,16 @@
   "guestCards": 0,
   "archiveGuestCards": 4,
   "standaloneGuestPages": 0,
+  "archiveGuestsFirst": true,
+  "archiveCountText": "30+ events",
+  "archiveHasDateRange": false,
+  "archiveHasPublicTotal": false,
+  "archiveBlankCount": 1,
+  "archiveKeyLabels": [
+    "Bitcoin",
+    "Sovereign AI",
+    "Freedom Lab General"
+  ],
   "stageWidths": [
     816,
     816,

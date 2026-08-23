@@ -81,11 +81,12 @@ function storyBlock(key, value) {
 }
 
 function ringSystem(rings) {
-  const max = rings[0].value
+  const orbitRings = rings.slice(0, -1)
+  const max = orbitRings[0].value
   return `
     <div class="ring-system" role="img" aria-label="Concentric community rings from ${rings[0].display} total attendees to ${rings.at(-1).display} core members">
       <div class="ring-glow"></div>
-      ${rings.map((ring, index) => {
+      ${orbitRings.map((ring, index) => {
         const diameter = 390 - index * 66
         const ratio = ring.value / max
         return `<div class="orbit orbit-${index}" style="--diameter:${diameter}px;--ratio:${ratio}"><span></span></div>`
@@ -146,13 +147,14 @@ function eventCard(event) {
 
 function compactEventCard(event) {
   const category = event.category.toLowerCase().replaceAll(' ', '-').replaceAll('lab-general', 'general')
+  const title = event.public_title || event.name
   return `
-    <article class="compact-event-card category-${category}" title="${event.name}">
+    <article class="compact-event-card category-${category}" title="${event.name}" data-public-title="${title}">
       <div class="event-image">
         ${event.cover ? `<img src="${event.cover}" alt="${event.name}" loading="eager">` : '<div class="event-image-fallback"></div>'}
       </div>
       <div class="compact-event-copy">
-        <h2>${event.name}</h2>
+        <h2>${title}</h2>
         ${event.status === 'Upcoming' ? '<strong>Upcoming</strong>' : ''}
       </div>
     </article>`
@@ -168,29 +170,31 @@ function archiveGuestCard(guest) {
 
 function compactArchivePage(number) {
   return page(number, 'archive-page compact-archive-page', 'Freedom Lab event archive', `
-    ${heading('', 'Classes & Events', '31 events from October 2024 through September 2026.')}
+    ${heading('', 'Classes & Events')}
     <section class="archive-overview" aria-label="Event archive overview">
-      <div class="archive-count-block"><strong>${content.archive.count}</strong><span>events</span><small>${content.archive.date_range}</small></div>
-      <div class="archive-overview-copy">
+      <section class="archive-guests" aria-label="Featured guests">
+        <h2>Featured guests</h2>
+        <div class="archive-guest-grid">${guests.map(archiveGuestCard).join('')}</div>
+      </section>
+      <div class="archive-overview-lower">
+        <div class="archive-count-block"><strong>30+</strong><span>events</span></div>
         <div class="archive-program-copy">
           <div>
             <h2>What we teach</h2>
             <p>Hands-on Bitcoin fundamentals grew into privacy, open-source AI, software freedom, digital mindfulness, and community experimentation.</p>
           </div>
-          <div class="archive-category-totals">
-            ${content.archive.category_counts.map((category) => `<span><b>${category.value}</b>${category.label}</span>`).join('')}
-          </div>
         </div>
-        <section class="archive-guests" aria-label="Featured guests">
-          <h2>Featured guests</h2>
-          <div class="archive-guest-grid">${guests.map(archiveGuestCard).join('')}</div>
-        </section>
       </div>
     </section>
     <section class="compact-events-grid" aria-label="All 31 past and upcoming Freedom Lab events">
       ${[...events].reverse().map(compactEventCard).join('')}
-      <aside class="compact-archive-total"><strong>31</strong><span>events<br>in public</span></aside>
+      <aside class="compact-archive-blank" aria-hidden="true"></aside>
     </section>
+    <div class="compact-archive-key" aria-label="Event category key">
+      <span class="key-bitcoin">Bitcoin</span>
+      <span class="key-ai">Sovereign AI</span>
+      <span class="key-general">Freedom Lab General</span>
+    </div>
   `)
 }
 

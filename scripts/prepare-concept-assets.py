@@ -33,6 +33,19 @@ DASHBOARD_EVENTS = Path(
     "/Users/harrison/Hermes-Folder/Freedom-Lab/event-metrics-staging/"
     "dashboard-events.generated.json"
 )
+PUBLIC_EVENT_TITLES = {
+    "Workshop: How to Run a Bitcoin Lightning Node for Beginners": "How to Run a Bitcoin Lightning Node",
+    "Beginner's Workshop: How to Run a Bitcoin Node": "Workshop:How to Run a Bitcoin Node",
+    "Beginner's Workshop: How to Set up a Bitcoin Hardware Wallet": "The Basics: Bitcoin Hardware Wallets",
+    "Beginner’s Workshop: Secure Your Bitcoin Wallet": "Workshop: Secure Your Bitcoin Wallet",
+    "Beginner’s Workshop: How Bitcoin Works as A Decentralized Ledger": "How Bitcoin Works as A Decentralized Ledger",
+    "Beginner's Workshop: How to Buy Bitcoin P2P (Peer-to-Peer)": "How to Buy Bitcoin P2P (Peer-to-Peer)",
+    "Hands-On Class: How to Run a Bitcoin Node for Beginners": "Hands-On Class: How to Run a Bitcoin Node",
+    "Beginner's Class: How to Build a Bitcoin Hardware Wallet": "How to Build a Bitcoin Hardware Wallet",
+    "Workshop: How to Vibe Code with Open Source Tools": "Workshop: How to Vibe Code with Open Source",
+    "The Free Software Foundation: What Freedom in Software Means to You": "What Freedom in Software Means to You",
+    "Agentic Payments and the Future of Sovereign Money": "Agentic Payments and the Future of Sovereignty",
+}
 GUESTS = [
     {
         "slug": "seth-for-privacy",
@@ -255,6 +268,7 @@ def main() -> None:
             {
                 "index": index,
                 "name": event["name"],
+                "public_title": PUBLIC_EVENT_TITLES.get(event["name"], event["name"]),
                 "label": compact_event_label(event["name"], dashboard.get("label")),
                 "date": date.strftime("%b %-d, %Y"),
                 "iso_date": date.date().isoformat(),

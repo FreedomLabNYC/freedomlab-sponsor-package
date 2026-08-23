@@ -30,7 +30,7 @@
     {"value": "30+", "label": "Events hosted", "note": "Workshops, classes, and community events."}
   ],
   "community_rings": [
-    {"value": 830, "display": "830+", "label": "Total attendees", "detail": "Number of attendees who have RSVP'd to our events"},
+    {"value": 800, "display": "800+", "label": "Total attendees", "detail": "Number of attendees who have RSVP'd to our events"},
     {"value": 196, "display": "195+", "label": "Repeat attendees", "detail": "Attendees who have returned for more than one event."},
     {"value": 45, "display": "45+", "label": "Frequent members", "detail": "Frequent participants in our workshops, classes, and events."},
     {"value": 15, "display": "15+", "label": "Core members", "detail": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."}
