@@ -1,7 +1,7 @@
 {
   "option": "Option A — Signal Rings",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
-  "pdfBytes": 8435791,
+  "pdfBytes": 8431264,
   "linearized": true,
   "pageCount": 5,
   "imagesLoaded": true,
@@ -46,6 +46,164 @@
   "compactUsesPublicTitles": true,
   "compactTitlesFit": true,
   "compactTitlesUseTwoLines": true,
+  "compactUpcomingLabels": [],
+  "compactCopySpacing": [
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 8.4,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    },
+    {
+      "imageToTitle": 7,
+      "titleToBottom": 1.8,
+      "copyHeight": 22
+    }
+  ],
   "compactColorLinesAtBottom": true,
   "removedArchiveSourceText": true,
   "verticalStorySections": 3,
@@ -219,7 +377,7 @@
     "guestToLowerGap": 16,
     "lowerToEventsGap": 18,
     "lowerHeight": 76,
-    "eventCopyMaxHeight": 26,
+    "eventCopyMaxHeight": 22,
     "guestCardsContained": true
   },
   "archiveCountText": "30+ events",

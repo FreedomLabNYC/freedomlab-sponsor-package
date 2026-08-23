@@ -105,6 +105,20 @@ try {
         compactUsesPublicTitles: [...document.querySelectorAll('.compact-event-card')].every((card) => card.querySelector('h2')?.textContent.trim() === card.dataset.publicTitle),
         compactTitlesFit: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.scrollHeight <= title.clientHeight + 1),
         compactTitlesUseTwoLines: [...document.querySelectorAll('.compact-event-card h2')].every((title) => getComputedStyle(title).webkitLineClamp === '2'),
+        compactUpcomingLabels: [...document.querySelectorAll('.compact-event-card strong')].map((label) => label.textContent.trim()),
+        compactCopySpacing: (() => {
+          const cards = [...document.querySelectorAll('.compact-event-card')]
+          return cards.map((card) => {
+            const image = card.querySelector('.event-image').getBoundingClientRect()
+            const copy = card.querySelector('.compact-event-copy').getBoundingClientRect()
+            const title = card.querySelector('h2').getBoundingClientRect()
+            return {
+              imageToTitle: Math.round((title.top - image.bottom) * 10) / 10,
+              titleToBottom: Math.round((copy.bottom - title.bottom) * 10) / 10,
+              copyHeight: Math.round(copy.height * 10) / 10,
+            }
+          })
+        })(),
         compactColorLinesAtBottom: [...document.querySelectorAll('.compact-event-card')].every((card) => {
           const style = getComputedStyle(card)
           return parseFloat(style.borderBottomWidth) === 3 && parseFloat(style.borderTopWidth) === 0
@@ -253,6 +267,11 @@ try {
     if (option.key === 'a' && !state.compactUsesPublicTitles) throw new Error(`${option.name}: a compact event card does not show its approved abbreviated title`)
     if (option.key === 'a' && !state.compactTitlesUseTwoLines) throw new Error(`${option.name}: compact event titles are not constrained to two lines`)
     if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more abbreviated event titles need more than two lines`)
+    if (option.key === 'a' && state.compactUpcomingLabels.length !== 0) throw new Error(`${option.name}: compact event cards still show Upcoming text`)
+    if (option.key === 'a') {
+      const badCopySpacing = state.compactCopySpacing.find(({ imageToTitle, titleToBottom, copyHeight }) => imageToTitle < 6 || titleToBottom < 0 || copyHeight !== 22)
+      if (badCopySpacing) throw new Error(`${option.name}: event image/title spacing or copy-box balance regressed: ${JSON.stringify(badCopySpacing)}`)
+    }
     if (option.key === 'a' && !state.compactColorLinesAtBottom) throw new Error(`${option.name}: event color lines are not on the bottom edge`)
     if (option.key === 'a' && !state.removedArchiveSourceText) throw new Error(`${option.name}: removed archive source text is still visible`)
     if (option.key === 'a' && state.verticalStorySections !== 3) throw new Error(`${option.name}: expected three vertical story sections`)

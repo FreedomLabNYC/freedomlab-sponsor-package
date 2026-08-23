@@ -158,7 +158,6 @@ function compactEventCard(event) {
       </div>
       <div class="compact-event-copy">
         <h2>${title}</h2>
-        ${event.status === 'Upcoming' ? '<strong>Upcoming</strong>' : ''}
       </div>
     </article>`
 }
