@@ -192,6 +192,11 @@ try {
           const image = cards[0]?.querySelector('img')
           return image ? { width: image.naturalWidth, height: image.naturalHeight, src: image.getAttribute('src') } : null
         })(),
+        fsfGuestImage: (() => {
+          const card = [...document.querySelectorAll('.archive-guest-card')].find((item) => item.querySelector('h3')?.textContent.trim() === 'Free Software Foundation')
+          const image = card?.querySelector('img')
+          return image ? { width: image.naturalWidth, height: image.naturalHeight, src: image.getAttribute('src') } : null
+        })(),
         guestCards: document.querySelectorAll('.guest-card').length,
         archiveGuestCards: document.querySelectorAll('.archive-guest-card').length,
         standaloneGuestPages: document.querySelectorAll('.guests-page').length,
@@ -269,6 +274,7 @@ try {
     if (option.key === 'a' && (state.secureBitcoinWalletImage?.width !== 1254 || state.secureBitcoinWalletImage?.height !== 1254 || !state.secureBitcoinWalletImage.src.endsWith('/event-06.jpg'))) throw new Error(`${option.name}: Secure Your Bitcoin Wallet does not use the approved orange artwork`)
     if (option.key === 'a' && (state.lightningNodeImage?.width !== 1672 || state.lightningNodeImage?.height !== 941 || !state.lightningNodeImage.src.endsWith('/event-02.jpg'))) throw new Error(`${option.name}: Lightning Node event does not use the approved blue-and-yellow artwork`)
     if (option.key === 'a' && (state.recentRunNodeImage?.width !== 1672 || state.recentRunNodeImage?.height !== 941 || !state.recentRunNodeImage.src.endsWith('/event-11.jpg'))) throw new Error(`${option.name}: recent Run a Bitcoin Node event does not use the approved purple artwork`)
+    if (option.key === 'a' && (state.fsfGuestImage?.width !== 580 || state.fsfGuestImage?.height !== 580 || !state.fsfGuestImage.src.endsWith('/guest-free-software-foundation.jpg'))) throw new Error(`${option.name}: Free Software Foundation does not use the approved Giving Guide logo`)
     if (option.key === 'a' && state.archiveGuestCards !== 4) throw new Error(`${option.name}: expected 4 guest profiles on Classes & Events, found ${state.archiveGuestCards}`)
     if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot < 64)) throw new Error(`${option.name}: Featured guests is not a large-headshot 2x2 grid`)
     if (option.key === 'a' && (new Set(state.archiveLayout.widths).size !== 1 || new Set(state.archiveLayout.lefts).size !== 1)) throw new Error(`${option.name}: Classes & Events sections do not share the same width and alignment`)

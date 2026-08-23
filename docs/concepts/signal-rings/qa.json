@@ -1,7 +1,7 @@
 {
   "option": "Option A — Signal Rings",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
-  "pdfBytes": 8420918,
+  "pdfBytes": 8438593,
   "linearized": true,
   "pageCount": 5,
   "imagesLoaded": true,
@@ -191,6 +191,11 @@
     "width": 1672,
     "height": 941,
     "src": "assets/events/event-11.jpg"
+  },
+  "fsfGuestImage": {
+    "width": 580,
+    "height": 580,
+    "src": "assets/guest-free-software-foundation.jpg"
   },
   "guestCards": 0,
   "archiveGuestCards": 4,

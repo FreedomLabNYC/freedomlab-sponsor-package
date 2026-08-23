@@ -28,12 +28,14 @@
       "Publishes the GNU GPL, LGPL, and AGPL",
       "Defends free-software licenses through its compliance lab"
     ],
-    "image_url": "https://static.fsf.org/common/img/logo-new.png",
-    "image_source": "https://www.fsf.org/about/",
+    "image_url": "https://www.fsf.org/givingguide/v10/img/charities/fsf.png",
+    "image_source": "https://www.fsf.org/givingguide/v10/",
     "source_urls": [
-      "https://www.fsf.org/about/"
+      "https://www.fsf.org/about/",
+      "https://www.fsf.org/givingguide/v10/",
+      "https://www.fsf.org/givingguide/v10/img/charities/fsf.png"
     ],
-    "image_note": "Official organization logo; the featured guest is an institution, not one individual.",
+    "image_note": "Official FSF logo from the Free Software Foundation's Giving Guide v10.",
     "image_fit": "contain",
     "image": "assets/guest-free-software-foundation.jpg"
   },

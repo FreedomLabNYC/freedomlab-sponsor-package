@@ -9,6 +9,7 @@ These files are the immutable user-supplied sources for the selected Signal Ring
 | `bitcoin-secure-wallet-2025-04-15.png` | `79e1e4865377467d1dbc22cf84d19b0b04fd1f03d3db0e255db3965f41eeccb7` | Apr 15, 2025 Secure Your Bitcoin Wallet |
 | `bitcoin-node-2025-07-29.png` | `9e66389614f9898d4d43133002c92b78181e80a874b406975c927d8395c67fe1` | Jul 29, 2025 Run a Bitcoin Node |
 | `bitcoin-lightning-node-2024-11-24.png` | `949d339224b0d232ee4ac8b6d85a48b2e3751f0ada3e5503d3fcf0a6deb91652` | Nov 24, 2024 Lightning Node workshop |
+| `fsf-giving-guide-v10.png` | `6e83da2b422850f7c31172fb4e3d2333318b557c41d0b02570402461318c2e22` | Featured guest logo for the Free Software Foundation |
 
 ## Approved crops
 

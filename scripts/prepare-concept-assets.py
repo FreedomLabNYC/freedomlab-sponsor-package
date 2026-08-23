@@ -30,6 +30,9 @@ EVENT_COVER_URL_OVERRIDES = {
 EVENT_COVER_OVERRIDES_BY_NAME = {
     "Workshop: How to Run a Bitcoin Lightning Node for Beginners": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-lightning-node-2024-11-24.png",
 }
+GUEST_IMAGE_OVERRIDES = {
+    "free-software-foundation": ROOT / "src" / "concepts" / "source-assets" / "fsf-giving-guide-v10.png",
+}
 USER_IMAGES = {
     "about-future-building.jpg": Path("/Users/harrison/.hermes/images/upload_20260822_144207_1.png"),
     "about-start-workshop.jpg": Path("/Users/harrison/.hermes/images/upload_20260822_144208_2.webp"),
@@ -92,10 +95,14 @@ GUESTS = [
             "Publishes the GNU GPL, LGPL, and AGPL",
             "Defends free-software licenses through its compliance lab",
         ],
-        "image_url": "https://static.fsf.org/common/img/logo-new.png",
-        "image_source": "https://www.fsf.org/about/",
-        "source_urls": ["https://www.fsf.org/about/"],
-        "image_note": "Official organization logo; the featured guest is an institution, not one individual.",
+        "image_url": "https://www.fsf.org/givingguide/v10/img/charities/fsf.png",
+        "image_source": "https://www.fsf.org/givingguide/v10/",
+        "source_urls": [
+            "https://www.fsf.org/about/",
+            "https://www.fsf.org/givingguide/v10/",
+            "https://www.fsf.org/givingguide/v10/img/charities/fsf.png",
+        ],
+        "image_note": "Official FSF logo from the Free Software Foundation's Giving Guide v10.",
         "image_fit": "contain",
     },
     {
@@ -297,8 +304,9 @@ def main() -> None:
     guest_output = []
     for guest in GUESTS:
         destination = ASSETS / f"guest-{guest['slug']}.jpg"
+        override = GUEST_IMAGE_OVERRIDES.get(guest["slug"])
         normalize_image(
-            get_bytes(guest["image_url"]),
+            override.read_bytes() if override else get_bytes(guest["image_url"]),
             destination,
             square=True,
             square_fit=guest.get("image_fit", "crop"),
