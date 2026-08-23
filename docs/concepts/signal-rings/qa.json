@@ -1,7 +1,7 @@
 {
   "option": "Option A — Signal Rings",
   "pdf": "/Users/harrison/Hermes-Folder/Projects/freedomlab-sponsor-package/dist/concepts/signal-rings.pdf",
-  "pdfBytes": 8431264,
+  "pdfBytes": 8431263,
   "linearized": true,
   "pageCount": 5,
   "imagesLoaded": true,
@@ -47,6 +47,7 @@
   "compactTitlesFit": true,
   "compactTitlesUseTwoLines": true,
   "compactUpcomingLabels": [],
+  "agenticPaymentsCategory": "AI",
   "compactCopySpacing": [
     {
       "imageToTitle": 7,

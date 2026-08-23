@@ -30,6 +30,9 @@ EVENT_COVER_URL_OVERRIDES = {
 EVENT_COVER_OVERRIDES_BY_NAME = {
     "Workshop: How to Run a Bitcoin Lightning Node for Beginners": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-lightning-node-2024-11-24.png",
 }
+EVENT_CATEGORY_OVERRIDES = {
+    "https://lu.ma/b2693yab": "AI",
+}
 GUEST_IMAGE_OVERRIDES = {
     "free-software-foundation": ROOT / "src" / "concepts" / "source-assets" / "fsf-giving-guide-v10.png",
 }
@@ -295,7 +298,7 @@ def main() -> None:
                 "iso_date": date.date().isoformat(),
                 "year": date.year,
                 "status": event.get("status") or ("Upcoming" if date > datetime.now(ny) else "Past"),
-                "category": classify(event["name"], dashboard.get("category")),
+                "category": EVENT_CATEGORY_OVERRIDES.get(event.get("url"), classify(event["name"], dashboard.get("category"))),
                 "url": event.get("url"),
                 "cover": local_cover,
             }

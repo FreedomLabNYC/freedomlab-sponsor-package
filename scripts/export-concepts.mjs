@@ -106,6 +106,7 @@ try {
         compactTitlesFit: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.scrollHeight <= title.clientHeight + 1),
         compactTitlesUseTwoLines: [...document.querySelectorAll('.compact-event-card h2')].every((title) => getComputedStyle(title).webkitLineClamp === '2'),
         compactUpcomingLabels: [...document.querySelectorAll('.compact-event-card strong')].map((label) => label.textContent.trim()),
+        agenticPaymentsCategory: document.querySelector('.compact-event-card[data-event-url="https://lu.ma/b2693yab"]')?.classList.contains('category-ai') ? 'AI' : null,
         compactCopySpacing: (() => {
           const cards = [...document.querySelectorAll('.compact-event-card')]
           return cards.map((card) => {
@@ -268,6 +269,7 @@ try {
     if (option.key === 'a' && !state.compactTitlesUseTwoLines) throw new Error(`${option.name}: compact event titles are not constrained to two lines`)
     if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more abbreviated event titles need more than two lines`)
     if (option.key === 'a' && state.compactUpcomingLabels.length !== 0) throw new Error(`${option.name}: compact event cards still show Upcoming text`)
+    if (option.key === 'a' && state.agenticPaymentsCategory !== 'AI') throw new Error(`${option.name}: Agentic Payments is not color-coded as AI`)
     if (option.key === 'a') {
       const badCopySpacing = state.compactCopySpacing.find(({ imageToTitle, titleToBottom, copyHeight }) => imageToTitle < 6 || titleToBottom < 0 || copyHeight !== 22)
       if (badCopySpacing) throw new Error(`${option.name}: event image/title spacing or copy-box balance regressed: ${JSON.stringify(badCopySpacing)}`)
