@@ -223,8 +223,8 @@ function tiersPage(number) {
   return page(number, 'tiers-page', 'Freedom Lab NYC sponsorship tiers', `
     ${optionKey === 'a' ? heading('', 'Sponsorship tiers', 'Support Freedom Lab classes, events, and community.') : heading('Partner with the community', 'Sponsorship tiers', 'Support the room where complex tools become practical freedoms.')}
     <section class="tier-proof" aria-label="Examples of sponsor recognition">
-      <figure><img src="../assets/event-sponsor-placard.jpeg" alt="Cake Wallet sponsor placard at a Freedom Lab event"><figcaption>Event visibility</figcaption></figure>
-      <figure><img src="../assets/premium-sponsor-wall.jpg" alt="3D-printed sponsor logos displayed at Freedom Lab"><figcaption>Permanent recognition</figcaption></figure>
+      <figure><img src="../assets/event-sponsor-placard-pdf.jpg" alt="Cake Wallet sponsor placard at a Freedom Lab event"><figcaption>Event visibility</figcaption></figure>
+      <figure><img src="../assets/premium-sponsor-wall-pdf.jpg" alt="3D-printed sponsor logos displayed at Freedom Lab"><figcaption>Permanent recognition</figcaption></figure>
     </section>
     <section class="tier-grid">
       <article class="tier-card event-tier">
@@ -275,9 +275,9 @@ const signalStoryCopy = {
 const signalStoryPageBody = `
   ${heading('', 'Freedom Lab NYC')}
   <section class="vertical-story" aria-label="Freedom Lab past, present, and future">
-    ${signalStorySection('vertical-started', 'How we started', [signalStoryCopy.started], 'assets/about-start-workshop.jpg', 'A packed hands-on Freedom Lab workshop around a shared table')}
+    ${signalStorySection('vertical-started', 'How we started', [signalStoryCopy.started], 'assets/about-start-workshop-pdf.jpg', 'A packed hands-on Freedom Lab workshop around a shared table')}
     ${signalStorySection('vertical-current', 'Where we are', [signalStoryCopy.current, signalStoryCopy.difference], '../assets/community-01.jpg', 'Freedom Lab members gathered for a class in the current workspace')}
-    ${signalStorySection('vertical-future', 'Where we’re going', [signalStoryCopy.future], 'assets/about-future-building.jpg', 'Illustrative street-level Freedom Lab NYC building concept')}
+    ${signalStorySection('vertical-future', 'Where we’re going', [signalStoryCopy.future], 'assets/about-future-building-pdf.jpg', 'Illustrative street-level Freedom Lab NYC building concept')}
   </section>
   ${sourceLine('Narrative supplied by Freedom Lab NYC · current-space photo: original 1242×864 source · future image is illustrative')}
 `
@@ -286,11 +286,11 @@ const standardStoryPageBody = `
   ${heading('About Freedom Lab NYC', story.title, story.dek)}
   <section class="story-visuals" aria-label="Freedom Lab then and future">
     <figure class="story-photo start-photo">
-      <img src="assets/about-start-workshop.jpg" alt="A packed hands-on Freedom Lab workshop around a shared table">
+      <img src="assets/about-start-workshop-pdf.jpg" alt="A packed hands-on Freedom Lab workshop around a shared table">
       <figcaption>Hands-on education · West Village</figcaption>
     </figure>
     <figure class="story-photo future-photo">
-      <img src="assets/about-future-building.jpg" alt="Illustrative street-level Freedom Lab NYC building concept">
+      <img src="assets/about-future-building-pdf.jpg" alt="Illustrative street-level Freedom Lab NYC building concept">
       <figcaption>Illustrative vision · our next home</figcaption>
     </figure>
   </section>

@@ -218,12 +218,26 @@ try {
     fs.writeFileSync(pdfPath, await merged.save())
     temporaryPages.forEach((temporaryPage) => fs.rmSync(temporaryPage, { force: true }))
 
+    const optimizedPdfPath = path.join(distDir, `.${option.slug}-linearized.pdf`)
+    execFileSync('qpdf', [
+      '--linearize',
+      '--object-streams=generate',
+      '--compress-streams=y',
+      '--recompress-flate',
+      '--compression-level=9',
+      pdfPath,
+      optimizedPdfPath,
+    ], { stdio: 'inherit' })
+    fs.renameSync(optimizedPdfPath, pdfPath)
+    const pdfBytes = fs.statSync(pdfPath).size
+    if (option.key === 'a' && pdfBytes > 10_000_000) throw new Error(`${option.name}: optimized PDF exceeds the 10 MB live-loading budget (${pdfBytes} bytes)`)
+
     execFileSync('python3', [path.join(root, 'scripts', 'make-concept-contact-sheets.py'), option.slug, option.name], { stdio: 'inherit' })
     fs.writeFileSync(
       path.join(previewDir, 'qa.json'),
-      `${JSON.stringify({ option: option.name, pdf: pdfPath, ...state, errors }, null, 2)}\n`,
+      `${JSON.stringify({ option: option.name, pdf: pdfPath, pdfBytes, linearized: true, ...state, errors }, null, 2)}\n`,
     )
-    console.log(JSON.stringify({ option: option.name, pdf: pdfPath, pages: state.pageCount, images: state.imageCount, events: state.eventCards }))
+    console.log(JSON.stringify({ option: option.name, pdf: pdfPath, pdfBytes, linearized: true, pages: state.pageCount, images: state.imageCount, events: state.eventCards }))
     await page.close()
   }
 } finally {

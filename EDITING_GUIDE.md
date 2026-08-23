@@ -62,7 +62,8 @@ npm run export:pdf
 ### Accepted-change checkpoints
 
 - After each accepted concept change, run `npm run export:concepts` and `npm run smoke:concepts`, then commit the source, derived assets, QA JSON, page renders, and regenerated PDF together.
-- Publish `dist/concepts/signal-rings.pdf` to `freedomlab.nyc/pdf1/` in a separate website-repository commit and verify the live PDF hash and rendered changed page.
+- Concept export uses PDF-specific JPEG derivatives plus `qpdf --linearize` so the live document starts rendering quickly without changing the approved source images.
+- Publish `dist/concepts/signal-rings.pdf` to `freedomlab.nyc/pdf1/` in a separate website-repository commit, update `pdf1/index.html` to a PDF query version derived from the new SHA-256 while preserving `#page=1&zoom=66`, and verify the live PDF hash and rendered changed page.
 - Do not stack multiple accepted visual changes in one uncommitted working-tree blob. Each accepted state should be independently revertible with Git.
 
 ## Visual quality

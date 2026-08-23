@@ -18,7 +18,7 @@ body{padding:28px;background:#d4d7d4;color:var(--paper)}
 .page-stage{width:816px;height:1056px;overflow:hidden}
 .page{position:relative;width:816px;height:1056px;overflow:hidden;isolation:isolate;transform-origin:top left;-webkit-font-smoothing:antialiased;background:#071109;color:var(--paper)}
 .page::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1}
-.cover-page{background:#000 url("../assets/cover-art.png") center/cover no-repeat!important}
+.cover-page{background:#000 url("../assets/cover-art-pdf.jpg") center/cover no-repeat!important}
 .cover-page::before{display:none}
 
 .page-heading{position:absolute;z-index:5;left:64px;right:64px;top:48px}
@@ -112,7 +112,7 @@ img{display:block;max-width:100%}
 .tier-close{position:absolute;left:60px;right:60px;bottom:60px;text-align:center;color:#fff;font-size:13px;font-weight:560}
 
 /* Shared dark visual texture */
-.option-signal-rings .page:not(.cover-page),.option-open-protocol .page:not(.cover-page){background:#071109 url("../assets/freedom-lab-background.png") center/cover no-repeat}
+.option-signal-rings .page:not(.cover-page),.option-open-protocol .page:not(.cover-page){background:#071109 url("../assets/freedom-lab-background-pdf.jpg") center/cover no-repeat}
 .option-signal-rings .page:not(.cover-page)::before{background:radial-gradient(circle at 72% 28%,rgba(50,208,17,.12),transparent 38%),linear-gradient(180deg,rgba(2,8,4,.02),rgba(2,8,4,.2))}
 
 /* Option A — Signal Rings */

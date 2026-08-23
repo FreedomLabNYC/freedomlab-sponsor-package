@@ -34,6 +34,7 @@ Pages 2 and 3 are editable HTML/CSS. Page 1 uses the approved supplied raster ar
 
 ```bash
 npm install
+brew install qpdf
 npm run preview
 ```
 
