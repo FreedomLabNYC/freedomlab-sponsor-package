@@ -150,9 +150,9 @@ function eventCard(event) {
 
 function compactEventCard(event) {
   const category = event.category.toLowerCase().replaceAll(' ', '-').replaceAll('lab-general', 'general')
-  const title = event.name
+  const title = event.public_title || event.name
   return `
-    <article class="compact-event-card category-${category}" title="${event.name}" data-public-title="${event.public_title || event.name}">
+    <article class="compact-event-card category-${category}" title="${event.name}" data-public-title="${title}" data-event-url="${event.url || ''}">
       <div class="event-image">
         ${event.cover ? `<img src="${event.cover}" alt="${event.name}" loading="eager">` : '<div class="event-image-fallback"></div>'}
       </div>

@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import crypto from 'node:crypto'
 import fs from 'node:fs'
 import http from 'node:http'
 import path from 'node:path'
@@ -13,6 +14,9 @@ const expectedStory = parseStoryMarkdown(fs.readFileSync(path.join(srcRoot, 'con
 const expectedStoryHeadings = expectedStory.sections.map((section) => section.title)
 const expectedStoryParagraphs = expectedStory.sections.map((section) => section.blocks.filter((block) => block.type === 'paragraph').map((block) => block.text))
 const expectedStoryPriorities = expectedStory.sections.flatMap((section) => section.blocks.filter((block) => block.type === 'list').flatMap((block) => block.items))
+const recentNodeAsset = path.join(srcRoot, 'concepts', 'assets', 'events', 'event-11.jpg')
+const recentNodeAssetHash = crypto.createHash('sha256').update(fs.readFileSync(recentNodeAsset)).digest('hex')
+if (recentNodeAssetHash !== 'dd8a7391eef6e294e92bd1f41769fb0f2609a9e4bf6a495806ec2697c5ff0889') throw new Error('Recent Run a Bitcoin Node PDF asset does not match the approved green artwork')
 const allOptions = [
   { key: 'a', slug: 'signal-rings', name: 'Option A — Signal Rings', pages: 5 },
   { key: 'b', slug: 'field-notes', name: 'Option B — Field Notes', pages: 7 },
@@ -98,9 +102,9 @@ try {
         compactTitlesPresent: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.textContent.trim().length > 0),
         compactImagesSquare: [...document.querySelectorAll('.compact-event-card .event-image')].every((image) => Math.abs(image.getBoundingClientRect().width - image.getBoundingClientRect().height) < 1),
         compactTitleOrder: [...document.querySelectorAll('.compact-event-card h2')].map((title) => title.textContent.trim()),
-        compactUsesFullTitles: [...document.querySelectorAll('.compact-event-card')].every((card) => card.querySelector('h2')?.textContent.trim() === card.getAttribute('title')),
+        compactUsesPublicTitles: [...document.querySelectorAll('.compact-event-card')].every((card) => card.querySelector('h2')?.textContent.trim() === card.dataset.publicTitle),
         compactTitlesFit: [...document.querySelectorAll('.compact-event-card h2')].every((title) => title.scrollHeight <= title.clientHeight + 1),
-        compactTitlesUseFourLines: [...document.querySelectorAll('.compact-event-card h2')].every((title) => getComputedStyle(title).webkitLineClamp === '4'),
+        compactTitlesUseTwoLines: [...document.querySelectorAll('.compact-event-card h2')].every((title) => getComputedStyle(title).webkitLineClamp === '2'),
         compactColorLinesAtBottom: [...document.querySelectorAll('.compact-event-card')].every((card) => {
           const style = getComputedStyle(card)
           return parseFloat(style.borderBottomWidth) === 3 && parseFloat(style.borderTopWidth) === 0
@@ -188,9 +192,9 @@ try {
           return image ? { width: image.naturalWidth, height: image.naturalHeight, src: image.getAttribute('src') } : null
         })(),
         recentRunNodeImage: (() => {
-          const cards = [...document.querySelectorAll('.compact-event-card[title="Beginner\'s Workshop: How to Run a Bitcoin Node"]')]
-          const image = cards[0]?.querySelector('img')
-          return image ? { width: image.naturalWidth, height: image.naturalHeight, src: image.getAttribute('src') } : null
+          const card = document.querySelector('.compact-event-card[data-event-url="https://lu.ma/wphbb1r0"]')
+          const image = card?.querySelector('img')
+          return image ? { width: image.naturalWidth, height: image.naturalHeight, src: image.getAttribute('src'), title: card.querySelector('h2')?.textContent.trim() } : null
         })(),
         fsfGuestImage: (() => {
           const card = [...document.querySelectorAll('.archive-guest-card')].find((item) => item.querySelector('h3')?.textContent.trim() === 'Free Software Foundation')
@@ -244,11 +248,11 @@ try {
     if (option.key === 'a' && state.compactEventCards !== 31) throw new Error(`${option.name}: expected 31 compact event cards, found ${state.compactEventCards}`)
     if (option.key === 'a' && !state.compactTitlesPresent) throw new Error(`${option.name}: one or more compact event titles are missing`)
     if (option.key === 'a' && !state.compactImagesSquare) throw new Error(`${option.name}: one or more compact event images are not square`)
-    if (option.key === 'a' && state.compactTitleOrder[0] !== 'Agentic Payments and the Future of Sovereign Money') throw new Error(`${option.name}: newest event is not first`)
+    if (option.key === 'a' && state.compactTitleOrder[0] !== 'Agentic Payments and the Future of Sovereignty') throw new Error(`${option.name}: newest event is not first`)
     if (option.key === 'a' && state.compactTitleOrder.at(-1) !== 'Empire State of Bitcoin Launch Event') throw new Error(`${option.name}: oldest event is not last`)
-    if (option.key === 'a' && !state.compactUsesFullTitles) throw new Error(`${option.name}: a compact event card does not show its full event title`)
-    if (option.key === 'a' && !state.compactTitlesUseFourLines) throw new Error(`${option.name}: compact event titles are not constrained to four lines`)
-    if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more full event titles need more than four lines`)
+    if (option.key === 'a' && !state.compactUsesPublicTitles) throw new Error(`${option.name}: a compact event card does not show its approved abbreviated title`)
+    if (option.key === 'a' && !state.compactTitlesUseTwoLines) throw new Error(`${option.name}: compact event titles are not constrained to two lines`)
+    if (option.key === 'a' && !state.compactTitlesFit) throw new Error(`${option.name}: one or more abbreviated event titles need more than two lines`)
     if (option.key === 'a' && !state.compactColorLinesAtBottom) throw new Error(`${option.name}: event color lines are not on the bottom edge`)
     if (option.key === 'a' && !state.removedArchiveSourceText) throw new Error(`${option.name}: removed archive source text is still visible`)
     if (option.key === 'a' && state.verticalStorySections !== 3) throw new Error(`${option.name}: expected three vertical story sections`)
@@ -275,12 +279,12 @@ try {
     if (option.key === 'a' && (state.futureStoryImage?.width !== 904 || state.futureStoryImage?.height !== 941 || !state.futureStoryImage.src.endsWith('/about-future-building-full-height-crop.jpg') || state.futureStoryImage.rendered.join('x') !== '290x302')) throw new Error(`${option.name}: future-building image is not the approved full-height crop`)
     if (option.key === 'a' && (state.secureBitcoinWalletImage?.width !== 1254 || state.secureBitcoinWalletImage?.height !== 1254 || !state.secureBitcoinWalletImage.src.endsWith('/event-06.jpg'))) throw new Error(`${option.name}: Secure Your Bitcoin Wallet does not use the approved orange artwork`)
     if (option.key === 'a' && (state.lightningNodeImage?.width !== 1672 || state.lightningNodeImage?.height !== 941 || !state.lightningNodeImage.src.endsWith('/event-02.jpg'))) throw new Error(`${option.name}: Lightning Node event does not use the approved blue-and-yellow artwork`)
-    if (option.key === 'a' && (state.recentRunNodeImage?.width !== 1672 || state.recentRunNodeImage?.height !== 941 || !state.recentRunNodeImage.src.endsWith('/event-11.jpg'))) throw new Error(`${option.name}: recent Run a Bitcoin Node event does not use the approved purple artwork`)
+    if (option.key === 'a' && (state.recentRunNodeImage?.width !== 1672 || state.recentRunNodeImage?.height !== 941 || !state.recentRunNodeImage.src.endsWith('/event-11.jpg') || state.recentRunNodeImage.title !== 'Workshop: How to Run a Bitcoin Node')) throw new Error(`${option.name}: recent Run a Bitcoin Node event does not use the approved green artwork and spaced title`)
     if (option.key === 'a' && (state.fsfGuestImage?.width !== 580 || state.fsfGuestImage?.height !== 580 || !state.fsfGuestImage.src.endsWith('/guest-free-software-foundation.jpg'))) throw new Error(`${option.name}: Free Software Foundation does not use the approved Giving Guide logo`)
     if (option.key === 'a' && state.archiveGuestCards !== 4) throw new Error(`${option.name}: expected 4 guest profiles on Classes & Events, found ${state.archiveGuestCards}`)
-    if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot !== 88 || state.archiveLayout.guestHeight !== 260)) throw new Error(`${option.name}: Featured guests is not the approved enlarged 2x2 grid`)
+    if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot !== 112 || state.archiveLayout.guestHeight !== 322)) throw new Error(`${option.name}: Featured guests is not the approved enlarged 2x2 grid`)
     if (option.key === 'a' && (new Set(state.archiveLayout.widths).size !== 1 || new Set(state.archiveLayout.lefts).size !== 1)) throw new Error(`${option.name}: Classes & Events sections do not share the same width and alignment`)
-    if (option.key === 'a' && (!state.archiveLayout.guestCardsContained || state.archiveLayout.guestToLowerGap < 16 || state.archiveLayout.lowerToEventsGap < 18 || state.archiveLayout.lowerHeight > 76 || state.archiveLayout.eventCopyMaxHeight > 42)) throw new Error(`${option.name}: Classes & Events sections overlap or event copy boxes are too tall`)
+    if (option.key === 'a' && (!state.archiveLayout.guestCardsContained || state.archiveLayout.guestToLowerGap < 16 || state.archiveLayout.lowerToEventsGap < 18 || state.archiveLayout.lowerHeight > 76 || state.archiveLayout.eventCopyMaxHeight > 26)) throw new Error(`${option.name}: Classes & Events sections overlap or event copy boxes are too tall`)
     if (option.key === 'a' && state.standaloneGuestPages !== 0) throw new Error(`${option.name}: standalone Featured guests page still exists`)
     if (option.key === 'a' && !state.archiveGuestsFirst) throw new Error(`${option.name}: Featured guests is not the first Classes & Events section`)
     if (option.key === 'a' && state.archiveCountText !== '30+ events') throw new Error(`${option.name}: Classes & Events count is not 30+ events`)

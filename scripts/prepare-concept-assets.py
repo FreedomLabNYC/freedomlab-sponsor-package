@@ -22,7 +22,7 @@ EVENT_ASSETS = ASSETS / "events"
 DATA = OUT / "data"
 EVENT_COVER_OVERRIDES = {
     "https://lu.ma/7imd7ias": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-secure-wallet-2025-04-15.png",
-    "https://lu.ma/wphbb1r0": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-node-2025-07-29.png",
+    "https://lu.ma/wphbb1r0": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-node-2025-07-29-green.png",
 }
 EVENT_COVER_URL_OVERRIDES = {
     "https://lu.ma/ise6allq": "https://images.lumacdn.com/uploads/zr/81507ee8-7f32-4583-b006-67b28636de2f.png",
@@ -48,7 +48,7 @@ DASHBOARD_EVENTS = Path(
 )
 PUBLIC_EVENT_TITLES = {
     "Workshop: How to Run a Bitcoin Lightning Node for Beginners": "How to Run a Bitcoin Lightning Node",
-    "Beginner's Workshop: How to Run a Bitcoin Node": "Workshop:How to Run a Bitcoin Node",
+    "Beginner's Workshop: How to Run a Bitcoin Node": "Workshop: How to Run a Bitcoin Node",
     "Beginner's Workshop: How to Set up a Bitcoin Hardware Wallet": "The Basics: Bitcoin Hardware Wallets",
     "Beginner’s Workshop: Secure Your Bitcoin Wallet": "Workshop: Secure Your Bitcoin Wallet",
     "Beginner’s Workshop: How Bitcoin Works as A Decentralized Ledger": "How Bitcoin Works as A Decentralized Ledger",
