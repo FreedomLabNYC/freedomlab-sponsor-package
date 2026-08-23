@@ -20,6 +20,16 @@ OUT = ROOT / "src" / "concepts"
 ASSETS = OUT / "assets"
 EVENT_ASSETS = ASSETS / "events"
 DATA = OUT / "data"
+EVENT_COVER_OVERRIDES = {
+    "https://lu.ma/7imd7ias": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-secure-wallet-2025-04-15.png",
+    "https://lu.ma/wphbb1r0": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-node-2025-07-29.png",
+}
+EVENT_COVER_URL_OVERRIDES = {
+    "https://lu.ma/ise6allq": "https://images.lumacdn.com/uploads/zr/81507ee8-7f32-4583-b006-67b28636de2f.png",
+}
+EVENT_COVER_OVERRIDES_BY_NAME = {
+    "Workshop: How to Run a Bitcoin Lightning Node for Beginners": ROOT / "src" / "concepts" / "source-assets" / "bitcoin-lightning-node-2024-11-24.png",
+}
 USER_IMAGES = {
     "about-future-building.jpg": Path("/Users/harrison/.hermes/images/upload_20260822_144207_1.png"),
     "about-start-workshop.jpg": Path("/Users/harrison/.hermes/images/upload_20260822_144208_2.webp"),
@@ -190,6 +200,8 @@ def source_bytes(value: str) -> bytes:
     if value.startswith("data:"):
         _, encoded = value.split(",", 1)
         return base64.b64decode(encoded)
+    if value.startswith("/"):
+        return get_bytes(f"https://freedomlab.nyc{value}")
     return get_bytes(value)
 
 
@@ -256,11 +268,13 @@ def main() -> None:
     ordered = sorted(merged.values(), key=lambda item: item["date"])
     output_events = []
     for index, event in enumerate(ordered, 1):
-        cover = event.get("cover")
+        cover = EVENT_COVER_URL_OVERRIDES.get(event.get("url")) or event.get("cover")
         local_cover = None
         if cover:
             destination = EVENT_ASSETS / f"event-{index:02d}.jpg"
-            normalize_image(source_bytes(cover), destination)
+            override = EVENT_COVER_OVERRIDES.get(event.get("url")) or EVENT_COVER_OVERRIDES_BY_NAME.get(event.get("name"))
+            raw_cover = override.read_bytes() if override else source_bytes(cover)
+            normalize_image(raw_cover, destination)
             local_cover = f"assets/events/{destination.name}"
         date = datetime.fromisoformat(event["date"].replace("Z", "+00:00")).astimezone(ny)
         dashboard = dashboard_by_url.get(event.get("url"), {})

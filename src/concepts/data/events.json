@@ -2,6 +2,7 @@
   {
     "index": 1,
     "name": "Empire State of Bitcoin Launch Event",
+    "public_title": "Empire State of Bitcoin Launch Event",
     "label": "Empire State of Bitcoin",
     "date": "Oct 27, 2024",
     "iso_date": "2024-10-27",
@@ -40,6 +41,7 @@
   {
     "index": 4,
     "name": "How to Get Involved in the Bitcoin Space",
+    "public_title": "How to Get Involved in the Bitcoin Space",
     "label": "How to Get Involved in the Bitcoin Space",
     "date": "Feb 25, 2025",
     "iso_date": "2025-02-25",
@@ -91,6 +93,7 @@
   {
     "index": 8,
     "name": "Grassroots Aid for Myanmar (Burma)",
+    "public_title": "Grassroots Aid for Myanmar (Burma)",
     "label": "Grassroots Aid for Myanmar",
     "date": "May 11, 2025",
     "iso_date": "2025-05-11",
@@ -103,6 +106,7 @@
   {
     "index": 9,
     "name": "Bitcoin Trivia Night",
+    "public_title": "Bitcoin Trivia Night",
     "label": "Bitcoin Trivia Night",
     "date": "May 13, 2025",
     "iso_date": "2025-05-13",
@@ -115,6 +119,7 @@
   {
     "index": 10,
     "name": "Beginner's Workshop: How to Mine Bitcoin",
+    "public_title": "Beginner's Workshop: How to Mine Bitcoin",
     "label": "How to Mine Bitcoin",
     "date": "Jun 24, 2025",
     "iso_date": "2025-06-24",
@@ -166,6 +171,7 @@
   {
     "index": 14,
     "name": "Office Hours: How to Run a Bitcoin Node",
+    "public_title": "Office Hours: How to Run a Bitcoin Node",
     "label": "Office Hours: How to Run a Node",
     "date": "Oct 14, 2025",
     "iso_date": "2025-10-14",
@@ -191,6 +197,7 @@
   {
     "index": 16,
     "name": "Office Hours: Bitcoin Hardware Support",
+    "public_title": "Office Hours: Bitcoin Hardware Support",
     "label": "Office Hours: Bitcoin Hardware Support",
     "date": "Nov 11, 2025",
     "iso_date": "2025-11-11",
@@ -203,6 +210,7 @@
   {
     "index": 17,
     "name": "Workshop: Intro to Bitcoin and Mining",
+    "public_title": "Workshop: Intro to Bitcoin and Mining",
     "label": "Intro to Bitcoin and Mining",
     "date": "Dec 9, 2025",
     "iso_date": "2025-12-09",
@@ -228,6 +236,7 @@
   {
     "index": 19,
     "name": "Freedom Lab NYC Holiday Launch Party",
+    "public_title": "Freedom Lab NYC Holiday Launch Party",
     "label": "Holiday Party",
     "date": "Dec 19, 2025",
     "iso_date": "2025-12-19",
@@ -240,6 +249,7 @@
   {
     "index": 20,
     "name": "Bitcoin Video and Board Game Night",
+    "public_title": "Bitcoin Video and Board Game Night",
     "label": "Bitcoin Game Night",
     "date": "Jan 6, 2026",
     "iso_date": "2026-01-06",
@@ -252,6 +262,7 @@
   {
     "index": 21,
     "name": "Freedom Lab: New Year's Brainstorming",
+    "public_title": "Freedom Lab: New Year's Brainstorming",
     "label": "New Year's Brainstorming",
     "date": "Jan 27, 2026",
     "iso_date": "2026-01-27",
@@ -264,6 +275,7 @@
   {
     "index": 22,
     "name": "OpenClaw Show and Tell Night",
+    "public_title": "OpenClaw Show and Tell Night",
     "label": "OpenClaw Show and Tell I",
     "date": "Mar 3, 2026",
     "iso_date": "2026-03-03",
@@ -276,6 +288,7 @@
   {
     "index": 23,
     "name": "OpenClaw Show and Tell Night",
+    "public_title": "OpenClaw Show and Tell Night",
     "label": "OpenClaw Show and Tell II",
     "date": "Mar 24, 2026",
     "iso_date": "2026-03-24",
@@ -288,6 +301,7 @@
   {
     "index": 24,
     "name": "OpenClaw Show and Tell Night",
+    "public_title": "OpenClaw Show and Tell Night",
     "label": "OpenClaw Show and Tell III",
     "date": "Apr 23, 2026",
     "iso_date": "2026-04-23",
@@ -300,6 +314,7 @@
   {
     "index": 25,
     "name": "Open-Source AI Agent Skill Sharing Night",
+    "public_title": "Open-Source AI Agent Skill Sharing Night",
     "label": "Open Source AI Skillsharing",
     "date": "May 14, 2026",
     "iso_date": "2026-05-14",
@@ -312,6 +327,7 @@
   {
     "index": 26,
     "name": "Bitcoin Video and Board Game Night",
+    "public_title": "Bitcoin Video and Board Game Night",
     "label": "Bitcoin Game Night II",
     "date": "May 19, 2026",
     "iso_date": "2026-05-19",
@@ -324,6 +340,7 @@
   {
     "index": 27,
     "name": "Beginner's Workshop: An Introduction to Monero",
+    "public_title": "Beginner's Workshop: An Introduction to Monero",
     "label": "An Introduction to Monero",
     "date": "Jun 30, 2026",
     "iso_date": "2026-06-30",
@@ -336,6 +353,7 @@
   {
     "index": 28,
     "name": "Digital Mindfulness - Show & Tell",
+    "public_title": "Digital Mindfulness - Show & Tell",
     "label": "Digital Mindfulness",
     "date": "Jul 14, 2026",
     "iso_date": "2026-07-14",
@@ -348,6 +366,7 @@
   {
     "index": 29,
     "name": "Sovereign AI: A Fight for the Future of Freedom",
+    "public_title": "Sovereign AI: A Fight for the Future of Freedom",
     "label": "Sovereign AI",
     "date": "Aug 4, 2026",
     "iso_date": "2026-08-04",

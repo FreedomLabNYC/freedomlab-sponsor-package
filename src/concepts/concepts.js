@@ -1,3 +1,5 @@
+import { parseStoryMarkdown } from './story-data.mjs'
+
 const OPTIONS = {
   a: {
     slug: 'signal-rings',
@@ -33,10 +35,11 @@ document.documentElement.dataset.option = optionKey
 document.documentElement.dataset.collage = collageKey
 document.title = `Freedom Lab NYC — ${option.name}`
 
-const [content, guests, events] = await Promise.all([
+const [content, guests, events, signalStory] = await Promise.all([
   fetch('./data/content.json').then(requireJson),
   fetch('./data/guests.json').then(requireJson),
   fetch('./data/events.json').then(requireJson),
+  fetch('./data/story.md').then((response) => response.ok ? response.text() : Promise.reject(new Error(`${response.url} returned ${response.status}`))).then(parseStoryMarkdown),
 ])
 
 function requireJson(response) {
@@ -87,7 +90,7 @@ function ringSystem(rings) {
     <div class="ring-system" role="img" aria-label="Concentric community rings from ${rings[0].display} total attendees to ${rings.at(-1).display} core members">
       <div class="ring-glow"></div>
       ${orbitRings.map((ring, index) => {
-        const diameter = 390 - index * 66
+        const diameter = 302 - index * 72
         const ratio = ring.value / max
         return `<div class="orbit orbit-${index}" style="--diameter:${diameter}px;--ratio:${ratio}"><span></span></div>`
       }).join('')}
@@ -147,9 +150,9 @@ function eventCard(event) {
 
 function compactEventCard(event) {
   const category = event.category.toLowerCase().replaceAll(' ', '-').replaceAll('lab-general', 'general')
-  const title = event.public_title || event.name
+  const title = event.name
   return `
-    <article class="compact-event-card category-${category}" title="${event.name}" data-public-title="${title}">
+    <article class="compact-event-card category-${category}" title="${event.name}" data-public-title="${event.public_title || event.name}">
       <div class="event-image">
         ${event.cover ? `<img src="${event.cover}" alt="${event.name}" loading="eager">` : '<div class="event-image-fallback"></div>'}
       </div>
@@ -258,30 +261,25 @@ const story = content.story
 const eventFirst = events.slice(0, 16)
 const eventSecond = events.slice(16)
 
-function signalStorySection(className, title, paragraphs, image, alt) {
+function signalStorySection(className, section, image, alt) {
   return `
     <article class="vertical-story-section ${className}">
       <figure><img src="${image}" alt="${alt}"></figure>
       <div class="vertical-story-copy">
-        <h2>${title}</h2>
-        ${paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join('')}
+        <h2>${section.title}</h2>
+        ${section.blocks.map((block) => block.type === 'paragraph'
+          ? `<p>${block.text}</p>`
+          : `<ol>${block.items.map((item) => `<li>${item}</li>`).join('')}</ol>`).join('')}
       </div>
     </article>`
-}
-
-const signalStoryCopy = {
-  started: 'We began with hands-on Bitcoin education: building hardware wallets, running Bitcoin and Lightning nodes, mining bitcoin, and understanding how the systems work.',
-  current: 'Bitcoin remains the foundation. We now also teach sovereign AI, encryption, self-hosted infrastructure, and open-source hardware and software. Our office inside a West Village maker space gives us a base for workshops, coworking, and shared experimentation.',
-  difference: 'We make complex freedom tools approachable for beginners while giving experienced users and developers a place to test, use, and build them together.',
-  future: 'We want a permanent Freedom Lab building in central Manhattan: well branded, accessible from the ground floor, and visible to the city. It would be a classroom, coworking home, and place where developers meet the people who use their tools. As AI makes building easier, the community can create more useful freedom technology without losing sight of usability or digital rights.',
 }
 
 const signalStoryPageBody = `
   ${heading('', 'Freedom Lab NYC')}
   <section class="vertical-story" aria-label="Freedom Lab past, present, and future">
-    ${signalStorySection('vertical-started', 'How we started', [signalStoryCopy.started], 'assets/about-start-workshop-pdf.jpg', 'A packed hands-on Freedom Lab workshop around a shared table')}
-    ${signalStorySection('vertical-current', 'Where we are', [signalStoryCopy.current, signalStoryCopy.difference], '../assets/community-01.jpg', 'Freedom Lab members gathered for a class in the current workspace')}
-    ${signalStorySection('vertical-future', 'Where we’re going', [signalStoryCopy.future], 'assets/about-future-building-pdf.jpg', 'Illustrative street-level Freedom Lab NYC building concept')}
+    ${signalStorySection('vertical-started', signalStory.sections[0], 'assets/about-start-workshop-pdf.jpg', 'A packed hands-on Freedom Lab workshop around a shared table')}
+    ${signalStorySection('vertical-current', signalStory.sections[1], 'assets/about-current-chair-crop.jpg', 'Freedom Lab members gathered for a class in the current workspace')}
+    ${signalStorySection('vertical-future', signalStory.sections[2], 'assets/about-future-building-full-height-crop.jpg', 'Illustrative street-level Freedom Lab NYC building concept')}
   </section>
   ${sourceLine('Narrative supplied by Freedom Lab NYC · current-space photo: original 1242×864 source · future image is illustrative')}
 `
@@ -320,7 +318,7 @@ const markup = [
   page(1, 'cover-page', 'Freedom Lab NYC sponsorship package cover', ''),
   page(2, 'story-page', 'Freedom Lab NYC story, present, and future', storyPageBody),
   page(3, 'momentum-page', 'Freedom Lab community momentum', `
-    ${optionKey === 'a' ? heading('', 'Community') : heading('Community momentum', 'An open door — with a real core', 'The audience keeps widening. A meaningful group keeps coming back.')}
+    ${optionKey === 'a' ? heading('', 'The Community') : heading('Community momentum', 'An open door — with a real core', 'The audience keeps widening. A meaningful group keeps coming back.')}
     <section class="momentum-main">
       ${ringSystem(content.community_rings)}
       ${ringLegend(content.community_rings)}

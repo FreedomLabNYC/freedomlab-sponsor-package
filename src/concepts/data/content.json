@@ -24,9 +24,9 @@
     }
   },
   "existing_stats": [
-    {"value": "15+", "label": "Core members", "note": "Our core community that regularly participates in events, helps grow the lab and works on freedom tech projects together."},
-    {"value": "800+", "label": "Calendar subscribers", "note": "People subscribed to the Freedom Lab calendar."},
+    {"value": "1,000+", "label": "Mailing list", "note": "People subscribed to Freedom Lab updates."},
     {"value": "45+", "label": "Attendees per event", "note": "Typical attendance at Freedom Lab events."},
+    {"value": "140+", "label": "Member-only chat", "note": "Members in our private community chat."},
     {"value": "30+", "label": "Events hosted", "note": "Workshops, classes, and community events."}
   ],
   "community_rings": [

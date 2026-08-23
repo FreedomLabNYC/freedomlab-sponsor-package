@@ -8,7 +8,13 @@
     "export:pdf": "node scripts/export-pdf.mjs",
     "prepare:concepts": "python3 scripts/prepare-concept-assets.py",
     "export:concepts": "node scripts/export-concepts.mjs",
-    "smoke:concepts": "node scripts/smoke-concepts.mjs"
+    "smoke:concepts": "node scripts/smoke-concepts.mjs",
+    "deck:publish": "node scripts/publish-deck.mjs",
+    "story:check": "node scripts/update-story.mjs --check",
+    "story:crops": "python3 scripts/build-story-crops.py",
+    "story:export": "python3 scripts/build-story-crops.py && node scripts/export-story.mjs",
+    "story:publish": "node scripts/update-story.mjs --check && python3 scripts/build-story-crops.py && node scripts/export-story.mjs && node scripts/publish-deck.mjs",
+    "story:update": "node scripts/update-story.mjs"
   },
   "devDependencies": {
     "pdf-lib": "1.17.1",

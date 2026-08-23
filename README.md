@@ -1,8 +1,14 @@
 # Freedom Lab NYC Sponsor Package
 
-Editable source for Freedom Lab NYC's three-page sponsorship package.
+Editable source for Freedom Lab NYC's selected five-page Signal Rings sponsorship package, plus the earlier three-page package and three archived concept alternatives.
 
-## Full-resolution preview
+## Selected five-page preview
+
+[![Signal Rings five-page sponsorship package](docs/concepts/signal-rings-contact-sheet.png)](docs/concepts/signal-rings-contact-sheet.png)
+
+Open the individual full-resolution renders under `docs/concepts/signal-rings/` when reviewing copy, crops, or spacing.
+
+## Earlier three-page preview
 
 Each page is shown separately so the copy and numerical modules remain readable. Click any page to open its original resolution.
 
@@ -18,17 +24,20 @@ Each page is shown separately so the copy and numerical modules remain readable.
 
 [![Freedom Lab NYC sponsorship tiers](docs/preview/page-03-sponsorship-tiers.png)](docs/preview/page-03-sponsorship-tiers.png)
 
-- **Live preview:** https://freedomlab.nyc/sponsors-html/
-- **Published PDF:** https://freedomlab.nyc/sponsor/
+- **Selected live PDF:** https://freedomlab.nyc/pdf1/
+- **Earlier three-page preview:** https://freedomlab.nyc/sponsors-html/
+- **Earlier three-page PDF:** https://freedomlab.nyc/sponsor/
 - **Fork this repository:** https://github.com/FreedomLabNYC/freedomlab-sponsor-package/fork
 
-## Pages
+## Selected package pages
 
 1. Cover artwork
-2. Freedom Lab NYC primer, community photos, and key statistics
-3. Event Sponsor and Premium Sponsor tiers
+2. Freedom Lab story: origin, growth, and direction
+3. The Community: participation rings, photo collage, and current totals
+4. Classes & Events: featured guests and the complete event archive
+5. Event Sponsor and Premium Sponsor tiers
 
-Pages 2 and 3 are editable HTML/CSS. Page 1 uses the approved supplied raster artwork at `src/assets/cover-art.png`; replace that asset to change the artwork while preserving the page frame.
+Pages 2–5 are editable through `src/concepts/`. Page 1 uses the approved supplied raster artwork at `src/assets/cover-art.png`. The earlier three-page package remains under `src/index.html` and `src/styles.css` for historical compatibility.
 
 ## Quick start
 
@@ -62,6 +71,33 @@ npm run smoke:concepts
 ```
 
 Concept PDFs are written to `dist/concepts/`; page renders and contact sheets are written to `docs/concepts/`. Research and source provenance are in `docs/concepts/RESEARCH.md`.
+
+### Update the story page in seconds
+
+The selected deck's three-part story has one source of truth:
+
+```text
+src/concepts/data/story.md
+```
+
+Edit that Markdown file directly, or replace it atomically from a file or the clipboard:
+
+```bash
+npm run story:update -- /path/to/story.md
+pbpaste | npm run story:update -- -
+npm run story:check
+npm run story:export
+npm run story:publish
+```
+
+Use exactly three level-one headings (`# Heading`). Plain paragraphs and numbered lists are preserved in order. The updater validates the full document before replacing the last-known-good copy. The focused exporter replaces only page 2 in the existing five-page PDF, renders only that page for review, and checks the resulting PDF. `story:publish` then runs the shared deck publisher. The publisher stages only the PDF and viewer wrapper, gives the PDF URL a SHA-derived cache version, pushes both, and polls every two seconds until the live PDF hash and wrapper version match. Story copy never needs to be duplicated in JavaScript or test code.
+
+For accepted changes to any other page, export the selected deck and publish it with:
+
+```bash
+node scripts/export-concepts.mjs --option=a --screenshot-page=<page> --skip-contact-sheet
+npm run deck:publish -- --message='Describe the accepted change'
+```
 
 ## Export the PDF
 
