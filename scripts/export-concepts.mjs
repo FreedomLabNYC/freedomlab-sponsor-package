@@ -219,9 +219,11 @@ try {
             lefts: [guestRect?.left, lowerRect?.left, eventsRect?.left].map((value) => Math.round(value || 0)),
             guestColumns: guestGrid ? getComputedStyle(guestGrid).gridTemplateColumns.split(' ').length : 0,
             headshot: Math.round(headshot?.getBoundingClientRect().width || 0),
+            guestHeight: Math.round(guestRect?.height || 0),
             guestToLowerGap: Math.round((lowerRect?.top || 0) - (guestRect?.bottom || 0)),
             lowerToEventsGap: Math.round((eventsRect?.top || 0) - (lowerRect?.bottom || 0)),
             lowerHeight: Math.round(lowerRect?.height || 0),
+            eventCopyMaxHeight: Math.round(Math.max(...[...document.querySelectorAll('.compact-archive-page .compact-event-copy')].map((copy) => copy.getBoundingClientRect().height))),
             guestCardsContained: [...document.querySelectorAll('.compact-archive-page .archive-guest-card')].every((card) => card.getBoundingClientRect().bottom <= guestRect.bottom + 1),
           }
         })(),
@@ -276,9 +278,9 @@ try {
     if (option.key === 'a' && (state.recentRunNodeImage?.width !== 1672 || state.recentRunNodeImage?.height !== 941 || !state.recentRunNodeImage.src.endsWith('/event-11.jpg'))) throw new Error(`${option.name}: recent Run a Bitcoin Node event does not use the approved purple artwork`)
     if (option.key === 'a' && (state.fsfGuestImage?.width !== 580 || state.fsfGuestImage?.height !== 580 || !state.fsfGuestImage.src.endsWith('/guest-free-software-foundation.jpg'))) throw new Error(`${option.name}: Free Software Foundation does not use the approved Giving Guide logo`)
     if (option.key === 'a' && state.archiveGuestCards !== 4) throw new Error(`${option.name}: expected 4 guest profiles on Classes & Events, found ${state.archiveGuestCards}`)
-    if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot < 64)) throw new Error(`${option.name}: Featured guests is not a large-headshot 2x2 grid`)
+    if (option.key === 'a' && (state.archiveLayout.guestColumns !== 2 || state.archiveLayout.headshot !== 88 || state.archiveLayout.guestHeight !== 260)) throw new Error(`${option.name}: Featured guests is not the approved enlarged 2x2 grid`)
     if (option.key === 'a' && (new Set(state.archiveLayout.widths).size !== 1 || new Set(state.archiveLayout.lefts).size !== 1)) throw new Error(`${option.name}: Classes & Events sections do not share the same width and alignment`)
-    if (option.key === 'a' && (!state.archiveLayout.guestCardsContained || state.archiveLayout.guestToLowerGap < 16 || state.archiveLayout.lowerToEventsGap < 18 || state.archiveLayout.lowerHeight > 76)) throw new Error(`${option.name}: Classes & Events sections overlap or lack the approved gaps`)
+    if (option.key === 'a' && (!state.archiveLayout.guestCardsContained || state.archiveLayout.guestToLowerGap < 16 || state.archiveLayout.lowerToEventsGap < 18 || state.archiveLayout.lowerHeight > 76 || state.archiveLayout.eventCopyMaxHeight > 42)) throw new Error(`${option.name}: Classes & Events sections overlap or event copy boxes are too tall`)
     if (option.key === 'a' && state.standaloneGuestPages !== 0) throw new Error(`${option.name}: standalone Featured guests page still exists`)
     if (option.key === 'a' && !state.archiveGuestsFirst) throw new Error(`${option.name}: Featured guests is not the first Classes & Events section`)
     if (option.key === 'a' && state.archiveCountText !== '30+ events') throw new Error(`${option.name}: Classes & Events count is not 30+ events`)
